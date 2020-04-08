@@ -34,13 +34,14 @@ $(function(){
 
 		let location = document.getElementById("product-filter-form").elements.namedItem('location').value;
 		let name = document.getElementById("product-filter-form").elements.namedItem('name').value;
-		let code = document.getElementById("product-filter-form").elements.namedItem('code').value;
-		let color = document.getElementById("product-filter-form").elements.namedItem('color').value;
+		// let code = document.getElementById("product-filter-form").elements.namedItem('code').value;
+		// let color = document.getElementById("product-filter-form").elements.namedItem('color').value;
 
 		document.getElementById('ajax-loader').style.visibility = 'visible';
 
 		$.ajax({
-			url: "/product/filter?name="+name+"&code="+code+"&color="+color,
+			// url: "/product/filter?name="+name+"&code="+code+"&color="+color,
+			url: "/product/filter?name="+name,
 			method: 'get',
 			success: (response) => {
 				if(API.verifyResponse(response)){return};

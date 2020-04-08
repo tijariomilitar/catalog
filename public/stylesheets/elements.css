@@ -86,6 +86,33 @@ a {
 	border: 1px solid #8f9f94;
 }
 
+.btn-generic-search {
+	font-size: 12px;
+	width: 80%;
+	height: 30px;
+	margin: 3px;
+	font-family: "HelveticaNeue-Light";
+	text-align: center;
+	background-color: #fff;
+	border-radius: 5px;
+	border: 1px solid #8f9f94;
+}
+
+.btn-search-submit {
+	background-color: #e1e1e1;
+	color: #000;
+	font-size: 12px;
+	width:10%;
+	height: 30px;
+	margin: 3px;
+	font-weight: bold;
+	font-family: "HelveticaNeue-Light";
+	text-align: center;
+	border-radius: 20px;
+	border: 2px outset #f0f0f0;
+	transition: background-color 0.5s ease-in-out;
+}
+
 .btn-submit {
 	background-color: #e1e1e1;
 	color: #000;
@@ -196,6 +223,32 @@ a {
 	padding-bottom: 2px;
 	/*border: 1px solid #c8c8c8;*/
 	border: 1px solid #8f9f94;
+}
+
+.pagination-btn {
+	font-size: 12px;
+	width:45px;
+	height: 25px;
+	margin: 3px;
+	font-family: "HelveticaNeue-Light";
+	text-align: center;
+	background-color: #fff;
+	border-radius: 5px;
+	border: 1px solid #8f9f94;
+	font-weight: bold;
+}
+
+.pagination-btn:hover {
+	font-size: 12px;
+	width:45px;
+	height: 25px;
+	margin: 3px;
+	font-family: "HelveticaNeue-Light";
+	text-align: center;
+	background-color: #f0f0f0;
+	border-radius: 5px;
+	border: 1px solid #8f9f94;
+	font-weight: bold;
 }
 
 .tbl-show-link:hover {
