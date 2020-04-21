@@ -1,45 +1,41 @@
-function renderManageProducts(products, pageSize, page, location){
-	var html = "<tr>";
-	html += "<td>Cód</td>";
-	html += "<td>Nome</td>";
-	html += "<td>Tamanho</td>";
-	html += "<td>Cor</td>";
-	html += "</tr>";
-	for (let i = page * pageSize; i < products.length && i < (page + 1) * pageSize;i++){
-		html += "<tr>";
-		html += "<td><a class='tbl-show-link nowrap' onclick='showProduct("+products[i].id+", "+true+")'>"+products[i].code+"</a></td>";
-		html += "<td>"+products[i].name+"</td>";
-		html += "<td>"+products[i].size+"</td>";
-		html += "<td>"+products[i].color+"</td>";
-		html += "<td ><a class='tbl-show-link nowrap' onclick='editProduct("+products[i].id+")'>Edit</a></td>";
-		html += "<td><a class='tbl-show-link nowrap' onclick='removeProduct("+products[i].id+")'>Rem</a></td>";
-		html += "</tr>";
+function renderProductCatalog(products, pageSize, page, location){
+	var html = "";
+	for (i in products){
+		html += "<div class='box-4'>";
+			html += "<div id='product-"+products[i].id+"-image-div' class='box'>";
+				// html += "<div class='box' id='product-"+products[i].id+"-image-div'>";
+				html += "<div class='image' onclick='window.location=`/product/id/"+products[i].id+"`' id='product-"+products[i].id+"-image-show'></div>";
+				html += "<br>";
+				html += "<span class='impact'>"+products[i].name+" "+products[i].size+" | "+products[i].color+"</span>";
+					html += "<br>";
+					html += "<br>";
+					if(products[i].images.length){
+						html += "<button id='product"+products[i].id+"imagePrevious' class='btn-pagination' style='float:left;margin-left:15px' autocomplete='off' disabled>&lsaquo;&lsaquo;</button>";
+						html += "<span class='impact' id='product"+products[i].id+"imagePageNumber'></span>";
+						html += "<button id='product"+products[i].id+"imageNext' class='btn-pagination' style='float:right;margin-right:15px' autocomplete='off' disabled>&rsaquo;&rsaquo;</button>";
+					};
+				// html += "</div>";
+			html += "</div>";
+		html += "</div>";
 	};
-	
-	document.getElementById("product-manage-filter-tbl").innerHTML = html;
-	document.getElementById("product-manage-filter-div").style.display = "block";
-	$("#"+location+"PageNumber").text("" + (page + 1) + " de " + Math.ceil(products.length / pageSize));
+
+	document.getElementById("product-catalog").innerHTML = html;
+
+	for(i in products){
+		if(products[i].images.length){
+			productImagePagination(products[i].images);
+		} else {
+			document.getElementById("product-"+products[i].id+"-image-show").innerHTML = "<br><br><br><br><br>SEM IMAGENS<br><br><br><br><br>";
+			document.getElementById("product-"+products[i].id+"-image-div").style.height = "91%";
+			// document.getElementById("product"+products[i].id+"imagePageNumber").innerHTML = "0";
+			// document.getElementById("product"+products[i].id+"imagePrevious").disabled = true;
+			// document.getElementById("product"+products[i].id+"imageNext").disabled = true;
+		};
+	};
 };
 
-function renderCatalogProducts(products, pageSize, page, location){
-	var html = "<tr>";
-	html += "<td>Cód</td>";
-	html += "<td>Nome</td>";
-	html += "<td>Tamanho</td>";
-	html += "<td>Cor</td>";
-	html += "</tr>";
-	for (let i = page * pageSize; i < products.length && i < (page + 1) * pageSize;i++){
-		html += "<tr>";
-		html += "<td class='nowrap'>"+products[i].code+"</td>";
-		html += "<td>"+products[i].name+"</td>";
-		html += "<td>"+products[i].size+"</td>";
-		html += "<td>"+products[i].color+"</td>";
-		html += "<td><a class='tbl-show-link nowrap' onclick='showProduct("+products[i].id+", "+false+")'>Exibir</a></td>";
-		html += "</tr>";
-	};
-	document.getElementById("product-catalog-filter-tbl").innerHTML = html;
-	document.getElementById("product-catalog-filter-div").style.display = "block";
-	$("#"+location+"PageNumber").text("" + (page + 1) + " de " + Math.ceil(products.length / pageSize));
+function renderEmptyProductCatalog(location){
+	document.getElementById("product-catalog").innerHTML = "<div class='box-1'>Sua busca não retornou resultados</div>";
 };
 
 function fillProductSelect(products, select){

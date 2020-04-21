@@ -39,6 +39,10 @@ a {
 	font-weight: bold;
 }
 
+.impact {
+	font-family: Impact, Charcoal, sans-serif;
+}
+
 .btn-table {
      background:none;
      color:inherit;
@@ -86,15 +90,27 @@ a {
 	border: 1px solid #8f9f94;
 }
 
-.btn-generic-search {
+.input-search {
 	font-size: 12px;
-	width: 80%;
+	width: 40%;
 	height: 30px;
 	margin: 3px;
 	font-family: "HelveticaNeue-Light";
 	text-align: center;
 	background-color: #fff;
-	border-radius: 5px;
+	border-radius: 2px;
+	border: 1px solid #8f9f94;
+}
+
+.select-search-color {
+	font-size: 12px;
+	width: 25%;
+	height: 30px;
+	margin: 3px;
+	font-family: "HelveticaNeue-Light";
+	text-align-last: center;
+	background-color: #fff;
+	border-radius: 2px;
 	border: 1px solid #8f9f94;
 }
 
@@ -102,15 +118,23 @@ a {
 	background-color: #e1e1e1;
 	color: #000;
 	font-size: 12px;
-	width:10%;
+	width:25%;
 	height: 30px;
 	margin: 3px;
 	font-weight: bold;
 	font-family: "HelveticaNeue-Light";
 	text-align: center;
-	border-radius: 20px;
+	border-radius: 5px;
 	border: 2px outset #f0f0f0;
 	transition: background-color 0.5s ease-in-out;
+}
+
+.btn-search-submit:hover {
+	width: 25%; 
+	background-color: #000;
+	color: #f0f0f0;
+	animation-name: btnSubmitEffect;
+  	animation-duration: 0.3s;
 }
 
 .btn-submit {
@@ -131,16 +155,16 @@ a {
 .btn-submit:hover {
 	/*background-color: #c8c8c8;*/
 	width: 140px; 
-	background-color: #000; 
+	background-color: #000;
 	color: #f0f0f0;
 	animation-name: btnSubmitEffect;
   	animation-duration: 0.3s;
 }
 
 @keyframes btnSubmitEffect {
-  0% {width: 130px; background-color: #c8c8c8; color: #000;}
-  50% {width: 135px}
-  100% {width: 140px; background-color: #000; color: #f0f0f0;}
+  0% {width: 24.5%; background-color: #c8c8c8; color: #000;}
+  50% {width: 24.75%px}
+  100% {width: 25%px; background-color: #000; color: #f0f0f0;}
 }
 
 .btn-generic-date-day {
@@ -225,30 +249,27 @@ a {
 	border: 1px solid #8f9f94;
 }
 
-.pagination-btn {
-	font-size: 12px;
-	width:45px;
-	height: 25px;
-	margin: 3px;
-	font-family: "HelveticaNeue-Light";
-	text-align: center;
-	background-color: #fff;
-	border-radius: 5px;
-	border: 1px solid #8f9f94;
-	font-weight: bold;
+.btn-pagination {
+	box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	background:linear-gradient(to bottom, #c9c9c9 5%, #f0f0f0 100%);
+	background-color:#768d87;
+	border-radius:5px;
+	border:1px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#000;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	width: 70px;
+	padding:2px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #2b665e;
 }
 
-.pagination-btn:hover {
-	font-size: 12px;
-	width:45px;
-	height: 25px;
-	margin: 3px;
-	font-family: "HelveticaNeue-Light";
-	text-align: center;
-	background-color: #f0f0f0;
-	border-radius: 5px;
-	border: 1px solid #8f9f94;
-	font-weight: bold;
+.btn-pagination:hover {
+	background:linear-gradient(to bottom, #c3c3c3 5%, #c0c0c0 100%);
+	background-color:#6c7c7c;
 }
 
 .tbl-show-link:hover {

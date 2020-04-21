@@ -34,66 +34,29 @@ $(function(){
 
 		let location = document.getElementById("product-filter-form").elements.namedItem('location').value;
 		let name = document.getElementById("product-filter-form").elements.namedItem('name').value;
-		// let code = document.getElementById("product-filter-form").elements.namedItem('code').value;
-		// let color = document.getElementById("product-filter-form").elements.namedItem('color').value;
+		let code = document.getElementById("product-filter-form").elements.namedItem('code').value;
+		let color = document.getElementById("product-filter-form").elements.namedItem('color').value;
 
 		document.getElementById('ajax-loader').style.visibility = 'visible';
 
 		$.ajax({
-			// url: "/product/filter?name="+name+"&code="+code+"&color="+color,
-			url: "/product/filter?name="+name,
+			url: "/product/filter?name="+name+"&code="+code+"&color="+color,
+			// url: "/product/filter?name="+name,
 			method: 'get',
 			success: (response) => {
 				if(API.verifyResponse(response)){return};
-				
-				let pageSize = 15;
-				let page = 0;
 
-				function paging(){
-					if(response.products.length){
-						if(location==="productManage"){
-							renderManageProducts(response.products, pageSize, page, location);
-						} else if (location==="productCatalog"){
-							renderCatalogProducts(response.products, pageSize, page, location);
-						} else if (location==="productProduction"){
-							fillProductSelect(response.products, document.getElementById("product-production-kart-form").elements.namedItem('product_id'));
-						};
-					} else {
-						if(location==="productManage"){
-							lib.clearTable('product-manage-filter-tbl', location);
-						} else if (location==="productCatalog"){
-							lib.clearTable('product-catalog-filter-tbl', location);
-						} else if (location==="productProduction"){
-							document.getElementById("product-production-kart-form").elements.namedItem("product_id").innerHTML = "<option value=''>Sem registros</option>";
-						};
+				if(response.products.length){
+					if (location==="productCatalog"){
+						renderProductCatalog(response.products, location);
+					};
+				} else {
+					if(location==="productCatalog"){
+						renderEmptyProductCatalog(location);
 					};
 				};
 
 				document.getElementById('ajax-loader').style.visibility = 'hidden';
-
-				function buttonsPaging(){
-					$("#"+location+"Next").prop('disabled', response.products.length <= pageSize || page >= response.products.length / pageSize - 1);
-					$("#"+location+"Previous").prop('disabled', response.products.length <= pageSize || page == 0);
-				};
-
-				$(function(){
-				    $("#"+location+"Next").click(function(){
-				        if(page < response.products.length / pageSize - 1){
-				            page++;
-				            paging();
-				            buttonsPaging();
-				        };
-				    });
-				    $("#"+location+"Previous").click(function(){
-				        if(page > 0){
-				            page--;
-				            paging();
-				            buttonsPaging();
-				        };
-				    });
-				    paging();
-				    buttonsPaging();
-				});
 			}
 		});
 	});
@@ -151,47 +114,4 @@ function showProduct(id, admin){
 			document.getElementById('ajax-loader').style.visibility = 'hidden';
 		}
 	});
-};
-
-function editProduct(id){
-	document.getElementById('ajax-loader').style.visibility = 'visible';
-	$.ajax({
-		url: '/product/id/'+id,
-		method: 'get',
-		success: (response) => {
-			if(API.verifyResponse(response)){return};
-
-			document.getElementById('ajax-loader').style.visibility = 'hidden';
-
-			document.getElementById('product-create-form').elements.namedItem("id").value = response.product[0].id;
-			document.getElementById('product-create-form').elements.namedItem("name").value = response.product[0].name;
-			document.getElementById('product-create-form').elements.namedItem("code").value = response.product[0].code;
-			document.getElementById('product-create-form').elements.namedItem("color").value = response.product[0].color;
-			document.getElementById('product-create-form').elements.namedItem("size").value = response.product[0].size;
-
-			document.getElementById('ajax-loader').style.visibility = 'hidden';
-		}
-	});
-};
-
-function removeProduct(id){
-	let r = confirm('Deseja realmente excluir o produto?');
-
-	if(r){
-		document.getElementById('ajax-loader').style.visibility = 'visible';
-		$.ajax({
-			url: '/product/remove?id='+id,
-			method: 'delete',
-			success: function(response){
-				if(API.verifyResponse(response)){return};
-
-				document.getElementById('product-show-box').style.display = "none";
-				document.getElementById('ajax-loader').style.visibility = 'hidden';
-				
-				alert(response.done);
-
-				$("#product-filter-form").submit();
-			}
-		});
-	};
 };

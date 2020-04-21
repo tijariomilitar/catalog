@@ -10,42 +10,24 @@
 		  </div>
 		</header>
 		<section>
-			<div class="container">
+			<div id="container" class="container">
             	<!-- <h2>O que você está procurando</h2> -->
 				<form id="product-filter-form" class="box-1">
 					<input type="hidden" name="location" value="productCatalog">
-					<input type="text" name="name" class="btn-generic-search" placeholder="O que você está procurando?" autocomplete="off">
-					<!-- <input type="text" name="code" class="btn-generic-small" placeholder="Cód" autocomplete="off"> -->
-					<!-- <select name="color" id="product-catalog-color" class="btn-generic-small" autocomplete="off">
+					<input type="text" name="name" class="input-search" placeholder="O que você está procurando?" autocomplete="off">
+					<input type="hidden" name="code" class="btn-generic-small" placeholder="Cód" autocomplete="off">
+					<select name="color" id="product-catalog-color" class="select-search-color" autocomplete="off">
 						<option value="">Cor</option>
 						<% for(i in productColors){ %>
 							<option value="<%= productColors[i].shortcut %>"><%= productColors[i].name %></option>
 						<% } %>
-					</select> -->
+					</select>
 					<input type="submit" class="btn-search-submit" value="Filtrar">
 				</form>
-				<div id="product-catalog-filter-div" class="box-2" style="display:none">
-					<table class="tbl-info box-1" id="product-catalog-filter-tbl"></table>
-					<br>
-					<button id="productCatalogPrevious" class="pagination-btn" autocomplete="off" disabled>&lsaquo;&lsaquo;</button>
-                    <span id="productCatalogPageNumber"></span>
-                    <button id="productCatalogNext" class="pagination-btn" autocomplete="off" disabled>&rsaquo;&rsaquo;</button>
-				</div>
-				<div class="box-2" id="product-show-box" style="display:none;">
-					<table class="tbl-info box-1" id="product-show-tbl">
-						<tr>
-							<td>Cód</td>
-							<td>Nome</td>
-							<td>Tamanho</td>
-							<td>Cor</td>
-						</tr>
-						<tbody id="product-show-tbody"></tbody>
-					</table>
-					<div class="box-1" id="product-image-show"></div>
-					<button id="imagePrevious" class="pagination-btn" autocomplete="off" disabled>&lsaquo;&lsaquo;</button>
-                    <span id="imagePageNumber"></span>
-                    <button id="imageNext" class="pagination-btn" autocomplete="off" disabled>&rsaquo;&rsaquo;</button>
-				</div>
+
+			</div>
+			<div id="product-catalog" class="container">
+				
 			</div>
 		</section>
 		<div id="ajax-loader" class="ajax-loader">

@@ -1,88 +1,32 @@
-function productAddImage(product_id){
-	let image_url = prompt("Preencha com a URL da imagem");
-	if(image_url){
-		if(image_url.length < 7){
-			return alert('URL inválida!');
-		};
-		if(image_url.length > 200){
-			return alert('URL inválida!');
-		};
-		let img = '<img src="'+ image_url +'" />';
-		$(img).on("load", () =>  {
-			document.getElementById('ajax-loader').style.visibility = 'visible';
-			$.ajax({
-				url: '/product/addimage?product_id='+product_id+'&image_url='+image_url,
-				method: 'post',
-				success: (response) => {
-					if(API.verifyResponse(response)){return};
-
-					document.getElementById('ajax-loader').style.visibility = 'hidden';
-
-					showProduct(product_id, true);
-					alert(response.done);
-				}
-			});
-		}).bind('error', () =>  {
-			return alert('URL inválida!');
-		});
-	};
-};
-
-function productRemoveImage(image_id, product_id){
-	let r = confirm("Deseja realmente excluir a image?");
-	if(r){
-		document.getElementById('ajax-loader').style.visibility = 'visible';
-		$.ajax({
-			url: '/product/removeimage?id='+image_id,
-			method: 'delete',
-			success: function(response){
-				if(API.verifyResponse(response)){return};
-
-				document.getElementById('ajax-loader').style.visibility = 'hidden';
-
-				showProduct(product_id, true);
-				alert(response.done);
-			}
-		});
-	};
-};
-
-function productImagePagination(images, product_id, admin){
+function productImagePagination(images){
 	let pageSize = 1;
 	let page = 0;
 
 	function paging(){
 		let htmlImage = "";
 	    for (let i = page * pageSize; i < images.length && i < (page + 1) * pageSize;i++){
-			htmlImage += "<img class='image' src='"+images[i].url+"'>";
-			htmlImage += "<div clas='box-1'>";
-			htmlImage += "<br>";
-			if(admin){
-				htmlImage += "<button class='btn-generic-big' onclick='productRemoveImage("+images[i].id+", "+product_id+")'>Excluir</button>";
-			};
-			htmlImage += "</div>";
+			htmlImage += "<img class='image' src="+images[i].url+">";
 		};
 
-		document.getElementById('product-image-show').innerHTML = htmlImage;
-		document.getElementById('product-image-show').style.display = 'block';
+		document.getElementById("product-"+images[0].product_id+"-image-show").innerHTML = htmlImage;
 		
-	    $('#imagePageNumber').text('' + (page + 1) + ' de ' + Math.ceil(images.length / pageSize));
+	    $("#product"+images[0].product_id+"imagePageNumber").text("" + (page + 1) + " de " + Math.ceil(images.length / pageSize));
 	};
 
 	function saleButtonsPaging(){
-	    $('#imageNext').prop('disabled', images.length <= pageSize || page >= images.length / pageSize - 1);
-	    $('#imagePrevious').prop('disabled', images.length <= pageSize || page == 0);
+	    $("#product"+images[0].product_id+"imageNext").prop("disabled", images.length <= pageSize || page >= images.length / pageSize - 1);
+	    $("#product"+images[0].product_id+"imagePrevious").prop("disabled", images.length <= pageSize || page == 0);
 	};
 
 	$(() => {
-	    $('#imageNext').click(() => {
+	    $("#product"+images[0].product_id+"imageNext").click(() => {
 	        if(page < images.length / pageSize - 1){
 	            page++;
 	            paging();
 	            saleButtonsPaging();
 	        };
 	    });
-	    $('#imagePrevious').click(() => {
+	    $("#product"+images[0].product_id+"imagePrevious").click(() => {
 	        if(page > 0){
 	            page--;
 	            paging();
