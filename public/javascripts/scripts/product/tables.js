@@ -4,7 +4,7 @@ function renderProductCatalog(products, pageSize, page, location){
 		html += "<div class='box-4'>";
 			html += "<div id='product-"+products[i].id+"-image-div' class='box'>";
 				// html += "<div class='box' id='product-"+products[i].id+"-image-div'>";
-				html += "<div class='image' style='height:180px' onclick='window.location=`/product/id/"+products[i].id+"`' id='product-"+products[i].id+"-image-show'></div>";
+				html += "<div class='catalog-image' style='height:180px' onclick='window.location=`/product/id/"+products[i].id+"`' id='product-"+products[i].id+"-image-show'></div>";
 				html += "<br>";
 				html += "<span class='impact'>"+products[i].name+" "+products[i].size+" | "+products[i].color+"</span>";
 					html += "<br>";
