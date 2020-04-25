@@ -3,12 +3,15 @@
         <% include ./partials/head %>
 	</head>
 	<body>
-		<header>
-		  <div onclick="window.location.href='/'" href="#default" class="favicon"><img class="image" src="/images/favicon.png"></div>
-		  <div class="right">
-		    <!-- <a class="active" href="/login">Log in</a> -->
-		  </div>
+		<header class="header-background fill">
+			<div onclick="window.location.href='/'" href="#default" class="favicon"><img class="favicon-image" src="https://images.tcdn.com.br/img/img_prod/698194/1577982558_logo_branca_sem_fundo.png"></div>
+			<!-- <div onclick="window.location.href='/'" href="#default" class="favicon"><img class="favicon-image" src="/images/jaicon2.png"></div> -->
+			<div class="right">
+				<a class="active" href="/">Log in</a>
+				<!-- <a class="active" href="/login">Log in</a> -->
+			</div>
 		</header>
+		<% include ./partials/nav %>
 		<section>
 			<div id="container" class="container">
             	<!-- <h2>O que você está procurando</h2> -->
@@ -24,7 +27,6 @@
 					</select>
 					<input type="submit" class="btn-search-submit" value="Filtrar">
 				</form>
-
 			</div>
 			<div id="product-catalog" class="container">
 				

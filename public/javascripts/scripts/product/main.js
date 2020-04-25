@@ -115,3 +115,32 @@ function showProduct(id, admin){
 		}
 	});
 };
+
+function catalogFilter(name){
+	event.preventDefault();
+
+	let location = document.getElementById("product-filter-form").elements.namedItem('location').value;
+
+	document.getElementById('ajax-loader').style.visibility = 'visible';
+
+	$.ajax({
+		url: "/product/filter?name="+name,
+		// url: "/product/filter?name="+name,
+		method: 'get',
+		success: (response) => {
+			if(API.verifyResponse(response)){return};
+
+			if(response.products.length){
+				if (location==="productCatalog"){
+					renderProductCatalog(response.products, location);
+				};
+			} else {
+				if(location==="productCatalog"){
+					renderEmptyProductCatalog(location);
+				};
+			};
+
+			document.getElementById('ajax-loader').style.visibility = 'hidden';
+		}
+	});
+};

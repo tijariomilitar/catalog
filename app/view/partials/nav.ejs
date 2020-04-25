@@ -1,5 +1,34 @@
-<header>
-	<select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-	    <option value="">Produtos</option>
-	</select>
-</header>
+<div class="navigation">
+	<div class="dropdown">
+	  <button class="dropbtn">Coletes</button>
+	  <div class="dropdown-content">
+	    <a onclick="catalogFilter('plate carrier')">Plate Carrier Modular</a>
+	    <a onclick="catalogFilter('close')">Close Modular Modular</a>
+	    <a onclick="catalogFilter('colete modular ja3')">JA3 Modular Modular</a>
+	    <a onclick="catalogFilter('gola')">Gola</a>
+	    <a onclick="catalogFilter('bope')">Bope</a>
+	  </div>
+	</div>
+
+	<div class="dropdown">
+	  <button class="dropbtn">Modulares</button>
+	  <div class="dropdown-content">
+	    <a onclick="catalogFilter('porta carregador fuzil')">Porta Carregador de Fuzil</a>
+	    <a onclick="catalogFilter('porta carregador pistola')">Porta Carregador de Pistola</a>
+	    <a onclick="catalogFilter('porta camelback')">Porta Camelback</a>
+	    <a onclick="catalogFilter('bolsa p')">Bolsa Pequena</a>
+	    <a onclick="catalogFilter('bolsa m')">Bolsa Média</a>
+	    <a onclick="catalogFilter('porta radio')">Porta Rádio/HT</a>
+	    <a onclick="catalogFilter('coldre modular')">Coldre</a>
+	  </div>
+	</div>
+
+	<div class="dropdown">
+	  <button class="dropbtn">Acessórios</button>
+	  <div class="dropdown-content">
+	    <a onclick="catalogFilter('Coldre de perna')">Coldre de Perna</a>
+	    <a onclick="catalogFilter('bornal')">Bornal</a>
+	    <a onclick="catalogFilter('bandoleira')">Bandoleira</a>
+	  </div>
+	</div>
+</div>
