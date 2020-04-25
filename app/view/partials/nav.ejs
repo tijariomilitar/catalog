@@ -1,34 +1,34 @@
 <div class="navigation">
 	<div class="dropdown">
-	  <button class="dropbtn">Coletes</button>
-	  <div class="dropdown-content">
-	    <a onclick="catalogFilter('plate carrier')">Plate Carrier Modular</a>
-	    <a onclick="catalogFilter('close')">Close Modular Modular</a>
-	    <a onclick="catalogFilter('colete modular ja3')">JA3 Modular Modular</a>
-	    <a onclick="catalogFilter('gola')">Gola</a>
-	    <a onclick="catalogFilter('bope')">Bope</a>
-	  </div>
+		<select onChange="catalogFilter(this.value)" class="dropbtn">
+			<option value="Colete">Coletes</option>
+			<option value="plate carrier">Plate Carrier</option>
+			<option value="close">Close</option>
+			<option value="ja3">JA3</option>
+			<option value="gola">Gola</option>
+			<option value="bope">Bope</option>
+		</select>
 	</div>
 
 	<div class="dropdown">
-	  <button class="dropbtn">Modulares</button>
-	  <div class="dropdown-content">
-	    <a onclick="catalogFilter('porta carregador fuzil')">Porta Carregador de Fuzil</a>
-	    <a onclick="catalogFilter('porta carregador pistola')">Porta Carregador de Pistola</a>
-	    <a onclick="catalogFilter('porta camelback')">Porta Camelback</a>
-	    <a onclick="catalogFilter('bolsa p')">Bolsa Pequena</a>
-	    <a onclick="catalogFilter('bolsa m')">Bolsa Média</a>
-	    <a onclick="catalogFilter('porta radio')">Porta Rádio/HT</a>
-	    <a onclick="catalogFilter('coldre modular')">Coldre</a>
-	  </div>
+		<select onChange="catalogFilter(this.value)" class="dropbtn">
+			<option value="modular">Modulares</option>
+			<option value="porta carregador fuzil">Porta Carregador de Fuzil</option>
+			<option value="porta carregador pistola">Porta Carregador de Pistola</option>
+			<option value="porta camelback">Porta Camelback</option>
+			<option value="bolsa p">Bolsa Pequena</option>
+			<option value="bolsa m">Bolsa Média</option>
+			<option value="porta radio">Porta Rádio/HT</option>
+			<option value="coldre modular">Coldre</option>
+		</select>
 	</div>
 
 	<div class="dropdown">
-	  <button class="dropbtn">Acessórios</button>
-	  <div class="dropdown-content">
-	    <a onclick="catalogFilter('Coldre de perna')">Coldre de Perna</a>
-	    <a onclick="catalogFilter('bornal')">Bornal</a>
-	    <a onclick="catalogFilter('bandoleira')">Bandoleira</a>
-	  </div>
+		<select onChange="catalogFilter(this.value)" class="dropbtn">
+			<option value="tatico">Acessórios</option>
+			<option value="coldre de perna">Bornal</option>
+			<option value="coldre de perna">Coldre de Perna</option>
+			<option value="bandoleira">Bandoleira</option>
+		</select>
 	</div>
 </div>
