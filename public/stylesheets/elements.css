@@ -298,7 +298,7 @@ a {
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
-	width: 70px;
+	width: 25%;
 	padding:2px;
 	text-decoration:none;
 	text-shadow:0px -1px 0px #2b665e;
@@ -385,7 +385,7 @@ a {
 
 /*DROP DOWN ELEMENTS*/
 .dropbtn {
-    background-color: #222;
+    background-color: #111;
 	color: #f0f0f0;
 	font-size: 16px;
 	border: none;
@@ -405,6 +405,7 @@ a {
 .dropbtn option {
 	color: #f0f0f0;
 	text-align: center;
+	font-weight: bold;
 }
 
 .dropdown {
@@ -416,4 +417,12 @@ a {
 	background-color: #111;
 }
 
-.dropdown:hover .dropbtn {background-color: #111;}
+.dropdown:hover .dropbtn {background-color: #000;}
+
+select:required:invalid {
+	color: #666;
+}
+
+.dropbtn option[value=""][disabled] {
+	display: none;
+}
