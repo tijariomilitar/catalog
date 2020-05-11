@@ -3,12 +3,11 @@
         <% include ./partials/head %>
 	</head>
 	<body>
-		<header class="header-background fill">
-			<div onclick="window.location.href='/'" href="#default" class="favicon"><img class="favicon-image" src="https://images.tcdn.com.br/img/img_prod/698194/1577982558_logo_branca_sem_fundo.png"></div>
+		<header class="header-background-image fill">
+			<div onclick="window.location.href='/'" href="#default" class="favicon"><img class="favicon-image" src="/images/favicon/favicon-white.png"></div>
 			<!-- <div onclick="window.location.href='/'" href="#default" class="favicon"><img class="favicon-image" src="/images/jaicon2.png"></div> -->
 			<div class="right">
-				<a class="active" href="/">Entrar</a>
-				<!-- <a class="active" href="/login">Log in</a> -->
+				<a href="/login">Entrar</a>
 			</div>
 		</header>
 		<% include ./partials/nav %>
@@ -38,6 +37,5 @@
 	<footer>
         <% include ./partials/footer %>
         <% include ./product/partial %>
-        </script>
 	</footer>
 </html>
