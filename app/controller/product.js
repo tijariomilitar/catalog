@@ -113,11 +113,9 @@ const productController = {
 				res.send({ products });
 			} else {
 				const products = await Product.filter(false, params, values);
-				console.log(products);
 				for(i in products){
 					products[i].images = await Product.getImages(products[i].id);
 				};
-				console.log(products);
 				res.send({ products });
 			};
 		} catch (err) {

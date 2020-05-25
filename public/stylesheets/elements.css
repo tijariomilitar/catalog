@@ -148,12 +148,16 @@ a {
 
 .btn-submit:hover {
 	/*background-color: #c8c8c8;*/
-	width: 140px; 
+	width: 140px;
 	background-color: #000;
 	color: #f0f0f0;
 	animation-name: btnSubmitEffect;
   	animation-duration: 0.3s;
 }
+
+.login {
+	font-weight: bold;
+};
 
 @keyframes btnSubmitEffect {
   0% {width: 24.5%; background-color: #c8c8c8; color: #000;}
