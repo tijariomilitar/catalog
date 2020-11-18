@@ -3,48 +3,24 @@
     <% include ./../partials/head %>
   </head>
   <body>
-    <header>
-      <div onclick="window.location.href='/'" href="#default" class="favicon"><img class="image" src="/images/favicon.png"></div>
-      <div class="right">
-        <a class="active" href="/signup">Novo usuário</a>
-        <a onclick="let r = confirm('deseja sair?');if(r==true){window.location.href='/logout'}">Sair</a>
-      </div>
-    </header>
+    <% include ./../partials/header %>
     <% include ./../partials/nav %>
     <section>
       <div class="container">
         <div class="box-2">
-          <div class="menu-box">
-            <strong class="underline">Menu administrativo</strong>
-            <span class="span-menu" onclick="window.location.href='/product/index'">Produtos</span>
-            <span class="span-menu" onclick="window.location.href='/feedstock/index'">Gerir Matéria Prima</span>
-            <span class="span-menu" onclick="window.location.href='/feedstock/storage'">Estoque Matéria Prima</span>
+          <h3 class="title-soft underline">Administrativo</h3>
+          <div class="menu-box box-1">
+            <span class="span-menu" onclick="window.location.href='/department/manage'">Gerir departamentos e funções</span>
+            <span class="span-menu" onclick="window.location.href='/signup'">Novo Colaborador</span>
+            <span class="span-menu" onclick="window.location.href='/admin/user'">Gerir funcionários</span>
           </div>
         </div>
         <div class="box-2">
-          <div class="menu-box">
-            <strong class="underline">Menu administrativo</strong>
-            <span class="span-menu" onclick="window.location.href='/seamstress/index'">Costureiras</span>
+          <h3 class="title-soft underline">Produtos</h3>
+          <div class="menu-box box-1">
+            <span class="span-menu" onclick="window.location.href='/product/manage'">Gerir produtos</span>
           </div>
         </div>
-        
-        <!-- <div class="box-2">
-          <div class="menu-box">
-            <strong class="underline-title">Cadastrar nova Fábrica</strong>
-            <form id="factory-create-form">
-              <input type="text" class="btn-generic-big" name="city">
-              <input type="text" class="btn-generic-big" name="state">
-              <input type="submit" value="Cadastrar">
-            </form>
-          </div>
-        </div> -->
-
-        <!-- <div class="box-2">
-          <div class="menu-box">
-            <strong class="underline-title">Suporte</strong>
-            <span class="span-menu" onclick="window.location.href='/admin/support'">Acessar</span>
-          </div>
-        </div> -->
       </div>
     </section>
   </body>

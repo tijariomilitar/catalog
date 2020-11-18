@@ -10,11 +10,13 @@ const Product = function(){
 };
 
 Product.save = async (product) => {
-	let query = "INSERT INTO cms_wt_erp.product (code, name, color, size) VALUES ('"
+	let query = "INSERT INTO cms_wt_erp.product (code, name, color, size, brand, image) VALUES ('"
 		+product.code+"', '"
 		+product.name+"','"
 		+product.color+"','"
-		+product.size+"');";
+		+product.size+"','"
+		+product.brand+"','"
+		+product.image+"');";
 	return db(query);
 };
 
@@ -22,47 +24,14 @@ Product.update = async (product) => {
 	let query = "UPDATE cms_wt_erp.product SET code='"+product.code
 		+"', name='"+product.name
 		+"', color='"+product.color
-		+"', size='"+product.size+"' WHERE id='"+product.id+"';";
-	return db(query);
-};
-
-Product.addImage = async (image) => {
-	let query = "INSERT INTO cms_wt_erp.product_image (product_id, url) VALUES ('"
-		+image.product_id+"', '"
-		+image.url+"');";
-	return db(query);
-};
-
-Product.addFeedstock = async (insertion) => {
-	let query = "INSERT INTO cms_wt_erp.product_feedstock (product_id, feedstock_id, amount) VALUES ('"
-		+insertion.product_id+"', '"
-		+insertion.feedstock_id+"', '"
-		+insertion.amount+"');";
-	return db(query);
-};
-
-Product.updateFeedstock = async (insertion) => {
-	let query = "UPDATE cms_wt_erp.product_feedstock SET amount='"+insertion.amount+"' WHERE id='"+insertion.id+"';";
-	return db(query);
-};
-
-Product.removeFeedstock = async (product_feedstock_id) => {
-	let query = "DELETE FROM cms_wt_erp.product_feedstock WHERE id='"+product_feedstock_id+"';";
-	return db(query);
-};
-
-Product.feedstockList = async (id) => {
-	let query = "SELECT * FROM cms_wt_erp.product_feedstock WHERE product_id='"+id+"';";
+		+"', size='"+product.size
+		+"', brand='"+product.brand
+		+"', image='"+product.image+"' WHERE id='"+product.id+"';";
 	return db(query);
 };
 
 Product.list = async () => {
 	let query = "SELECT * FROM cms_wt_erp.product ORDER BY code ASC;";
-	return db(query);
-};
-
-Product.getImages = async (id) => {
-	let query = "SELECT * FROM cms_wt_erp.product_image WHERE product_id='"+id+"';";
 	return db(query);
 };
 
@@ -86,96 +55,88 @@ Product.filter = async (name, params, values) => {
 	return db(query);
 };
 
-Product.remove = async (id) => {
+Product.delete = async (id) => {
 	let query = "DELETE FROM cms_wt_erp.product WHERE id='"+id+"';";
 	return db(query);
 };
 
-Product.removeProductImages = async (id) => {
-	let query = "DELETE FROM cms_wt_erp.product_image WHERE product_id='"+id+"';";
-	return db(query);
+Product.image = {
+	add: async (image) => {
+		let query = "INSERT INTO cms_wt_erp.product_image (product_id, url) VALUES ('"
+			+image.product_id+"', '"
+			+image.url+"');";
+		return db(query);
+	},
+	list: async (id) => {
+		let query = "SELECT * FROM cms_wt_erp.product_image WHERE product_id='"+id+"';";
+		return db(query);
+	},
+	remove: async (image_id) => {
+		let query = "DELETE FROM cms_wt_erp.product_image WHERE id='"+image_id+"';";
+		return db(query);
+	},
+	removeByProductId: async (id) => {
+		let query = "DELETE FROM cms_wt_erp.product_image WHERE product_id='"+id+"';";
+		return db(query);
+	}
 };
 
-Product.removeProductFeedstocks = async (id) => {
-	let query = "DELETE FROM cms_wt_erp.product_feedstock WHERE product_id='"+id+"';";
-	return db(query);
-};
-
-Product.feedstockClear = async (id) => {
-	let query = "DELETE FROM cms_wt_erp.product_feedstock WHERE feedstock_id='"+id+"';";
-	return db(query);
-};
-
-Product.removeImage = async (image_id) => {
-	let query = "DELETE FROM cms_wt_erp.product_image WHERE id='"+image_id+"';";
-	return db(query);
-};
-
-Product.productionSave = async (production) => {
-	let query = "INSERT INTO cms_wt_erp.product_production (date, full_date, storage_id, user) VALUES ('"
-		+production.date+"', '"
-		+production.full_date+"', '"
-		+production.storage_id+"', '"
-		+production.user+"');";
-	return db(query);
-};
-
-Product.productionSaveProduct = async (production_id, product) => {
-	let query = "INSERT INTO cms_wt_erp.product_production_product (production_id, product_id, product_info, amount) VALUES ('"
-		+production_id+"', '"
-		+product.id+"', '"
-		+product.info+"', '"
-		+product.amount+"');";
-	return db(query);
-};
-
-Product.productionSaveFeedstock = async (production_id, feedstock) => {
-	let query = "INSERT INTO cms_wt_erp.product_production_feedstock (production_id, feedstock_id, feedstock_info, feedstock_uom, amount, standardAmount, releasedAmount) VALUES ('"
-		+production_id+"', '"
-		+feedstock.id+"', '"
-		+feedstock.info+"', '"
-		+feedstock.uom+"', '"
-		+feedstock.amount+"', '"
-		+feedstock.standardAmount+"', '"
-		+feedstock.releasedAmount+"');";
-	return db(query);
-};
-
-Product.productionConfirm = async (option) => {
-	let query = "UPDATE cms_wt_erp.product_production SET status='Pedido confirmado', confirmation_user='"+option.user+"' WHERE id='"+option.production_id+"';";
-	return db(query);
-};
-
-Product.productionCancel = async (option) => {
-	let query = "UPDATE cms_wt_erp.product_production SET status='Pedido cancelado', confirmation_user='"+option.user+"' WHERE id='"+option.production_id+"';";
-	return db(query);
-};
-
-Product.productionFindLast = async () => {
-	let query = "SELECT * FROM cms_wt_erp.product_production ORDER BY id DESC LIMIT 1;";
-	return db(query);
-};
-
-Product.productionFilter = async (periodStart, periodEnd, params, values) => {
-	let query = lib.filterByPeriod(periodStart, periodEnd, params, values, "cms_wt_erp", "product_production", "id", "DESC");
-	return db(query);
-};
-
-Product.productionFindById = async (id) => {
-	let query = "SELECT * FROM cms_wt_erp.product_production WHERE id='"+id+"';";
-	return db(query);
-};
-
-
-
-Product.productionListProducts = async (id) => {
-	let query = "SELECT * FROM cms_wt_erp.product_production_product WHERE production_id='"+id+"';";
-	return db(query);
-};
-
-Product.productionListFeedstocks = async (id) => {
-	let query = "SELECT * FROM cms_wt_erp.product_production_feedstock WHERE production_id='"+id+"';";
-	return db(query);
+Product.feedstock = {
+	add: async (product_feedstock) => {
+		let query = "INSERT INTO cms_wt_erp.product_feedstock (product_id, feedstock_id, uom, amount, measure, category_id) VALUES ('"
+			+product_feedstock.product_id+"', '"
+			+product_feedstock.feedstock_id+"', '"
+			+product_feedstock.uom+"', '"
+			+product_feedstock.amount+"', '"
+			+product_feedstock.measure+"', '"
+			+product_feedstock.category_id+"');";
+		return db(query);
+	},
+	update: async (product_feedstock) => {
+		let query = "UPDATE cms_wt_erp.product_feedstock SET amount='"+product_feedstock.amount+"', measure='"+product_feedstock.measure+"', category_id='"+product_feedstock.category_id+"' WHERE id='"+product_feedstock.id+"';";
+		return db(query);
+	},
+	findById: async (id) => {
+		let query = "SELECT * FROM cms_wt_erp.product_feedstock WHERE id='"+id+"';";
+		return db(query);
+	},
+	findByFeedstockId: async (id) => {
+		let query = "SELECT * FROM cms_wt_erp.product_feedstock WHERE feedstock_id='"+id+"';";
+		return db(query);
+	},
+	list: async (id) => {
+		let query = "SELECT * FROM cms_wt_erp.product_feedstock WHERE product_id='"+id+"';";
+		return db(query);
+	},
+	remove: async (id) => {
+		let query = "DELETE FROM cms_wt_erp.product_feedstock WHERE id='"+id+"';";
+		return db(query);
+	},
+	removeByProductId: async (id) => {
+		let query = "DELETE FROM cms_wt_erp.product_feedstock WHERE product_id='"+id+"';";
+		return db(query);
+	},
+	removeByFeedstockId: async (id) => {
+		let query = "DELETE FROM cms_wt_erp.product_feedstock WHERE feedstock_id='"+id+"';";
+		return db(query);
+	},
+	category: {
+		save: async (product_feedstock_category) => {
+			let query = "INSERT INTO cms_wt_erp.product_feedstock_category (product_id, name) VALUES ('"
+				+product_feedstock_category.product_id+"', '"
+				+product_feedstock_category.name+"');";
+			return db(query);		
+		},
+		// todo create findById
+		list: async (product_id) => {
+			let query = "SELECT * FROM cms_wt_erp.product_feedstock_category WHERE product_id='"+product_id+"';";
+			return db(query);
+		},
+		update: async (product_feedstock_category) => {
+			let query = "UPDATE cms_wt_erp.product_feedstock_category SET name='"+product_feedstock_category.name+"' WHERE id='"+product_feedstock_category.id+"';";
+			return db(query);
+		}
+	}
 };
 
 Product.categorySave = async (category) => {

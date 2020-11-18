@@ -3,12 +3,7 @@
         <% include ./../partials/head %>
 	</head>
 	<body>
-		<header>
-			<div onclick="window.location.href='/'" href="#default" class="favicon"><img class="image" src="/images/favicon.png"></div>
-			<div class="right">
-			<a onclick="let r = confirm('deseja sair?');if(r==true){window.location.href='/logout'}">Sair</a>
-			</div>
-		</header>
+		<% include ./../partials/header %>
         <% include ./../partials/nav %>
 		<section>
 			<div class="container">
@@ -22,6 +17,11 @@
 							<% for(i in productColors){ %>
 								<option value="<%= productColors[i].shortcut %>"><%= productColors[i].name %></option>
 							<% } %>
+						</select>
+						<select name="brand" class="btn-generic-big">
+							<option value="">Marca do Produto</option>
+							<option value="Sem marca">Sem marca</option>
+							<option value="J.A Rio Militar">J.A Rio Militar</option>
 						</select>
 						<input type="submit" class="btn-submit" value="Filtrar">
 					</form>

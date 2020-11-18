@@ -1,34 +1,36 @@
-<div class="navigation">
-	<div class="dropdown">
-		<select onChange="catalogFilter(this.value)" class="dropbtn">
-			<option value="" disabled selected>Coletes</option>
-			<option value="plate carrier">Plate Carrier</option>
-			<option value="close">Close</option>
-			<option value="ja3">JA3</option>
-			<option value="gola">Gola</option>
-			<option value="bope">Bope</option>
-		</select>
-	</div>
+<nav>
+	<select class="hide-disabled" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+	    <option value="" disabled selected>Financeiro</option>
+	    <option value="/financial/index">Gerir Receitas / Despesas</option>
+	    <option value="/financial/income">Configurar Receitas</option>
+	    <option value="/financial/outcome">Configurar Despesas</option>
+	</select>
 
-	<div class="dropdown">
-		<select onChange="catalogFilter(this.value)" class="dropbtn">
-			<option value="" disabled selected>Modulares</option>
-			<option value="porta carregador fuzil">Porta Carregador de Fuzil</option>
-			<option value="porta carregador pistola">Porta Carregador de Pistola</option>
-			<option value="porta camelback">Porta Camelback</option>
-			<option value="bolsa p">Bolsa Pequena</option>
-			<option value="bolsa m">Bolsa Média</option>
-			<option value="porta radio">Porta Rádio/HT</option>
-			<option value="coldre modular">Coldre</option>
-		</select>
-	</div>
+	<select class="hide-disabled" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+	    <option value="" disabled selected>Matéria-Prima</option>
+	    <option value="/feedstock/manage">Gerir Materias-Primas</option>
+	    <option value="/feedstock/supplier">Gerir Fornecedores</option>
+	    <option value="/feedstock/request">Pedido avulso</option>
+	    <option value="/feedstock/regress">Pedido de retorno</option>
+	    <option value="/feedstock/purchase">Pedido de compra</option>
+	    <option value="/feedstock/purchase/manage">Gerir Compras</option>
+	    <option value="/feedstock/storage">Estoque</option>
+	    <option value="/feedstock/storage/manage">Gerir Estoque</option>
+	</select>
 
-	<div class="dropdown">
-		<select onChange="catalogFilter(this.value)" class="dropbtn">
-			<option value="" disabled selected>Acessórios</option>
-			<option value="bornal">Bornal</option>
-			<option value="coldre de perna">Coldre de Perna</option>
-			<option value="bandoleira">Bandoleira</option>
-		</select>
-	</div>
-</div>
+	<select class="hide-disabled" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+	    <option value="" disabled selected>Produção</option>
+	    <option value="/product/manage">Gerir Produtos</option>
+	    <option value="/production/simulation">Simular Produção</option>
+	    <option value="/production">Solicitar Produção</option>
+	    <option value="/production/manage">Gerir Produções</option>
+	</select>
+
+	<select class="hide-disabled" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+	    <option value="" disabled selected>Costura</option>
+	    <option value="/seam/manage">Gerir Costura</option>
+	    <option value="/seam/report">Fluxo de produção</option>
+	    <option value="/seam/internal">Costura Interna</option>
+	    <option value="/seam/external">Costura Externa</option>
+	</select>
+</nav>

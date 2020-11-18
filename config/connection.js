@@ -2,11 +2,11 @@ const mysql = require('mysql');
 const dbconfig = require('./database');
 
 const pool  = mysql.createPool({
-	connectionLimit : 10,
-	host : dbconfig.connection.host,
-	port : dbconfig.connection.port,
-	user : dbconfig.connection.user,
-	password : dbconfig.connection.password
+	connectionLimit : 20,
+	host : dbconfig.production.database.host,
+	port : dbconfig.production.database.port,
+	user : dbconfig.production.database.user,
+	password : dbconfig.production.database.password
 });
 
 const db = async (query) => {
@@ -17,6 +17,7 @@ const db = async (query) => {
 		        if(!err){
 		        	resolve(rows)
 		        } else {
+		        	console.log(err);
 		        	reject(err);
 		        };
 		    });
