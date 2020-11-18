@@ -527,6 +527,11 @@ const productController = {
 				params.push("brand");
 				values.push(req.query.brand);
 			};
+			
+			if(req.query.status){
+				params.push("status");
+				values.push("Disponível");
+			};
 
 			try {
 				if(req.query.name){
