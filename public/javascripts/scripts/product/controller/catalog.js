@@ -1,6 +1,17 @@
 Product.controller.catalog = {};
 
 Product.view.catalog = {};
+
+Product.catalog = {};
+Product.catalog.filter = async (product) => {
+	let response = await fetch("/product/catalog/filter?code="+product.code+"&name="+product.name+"&color="+product.color+"&size="+product.size+"&brand="+product.brand);
+	response = await response.json();
+
+	if(API.verifyResponse(response)){ return false };
+
+	return response.products;
+};
+
 Product.view.catalog.filter = async (products, pagination) => {
 	var html = "";
 	for (let i = pagination.page * pagination.pageSize; i < products.length && i < (pagination.page + 1) * pagination.pageSize; i++){
@@ -50,7 +61,7 @@ if(Product.controller.catalog.filter){
 			brand: event.target.elements.namedItem("brand").value
 		};
 
-		let products = await Product.filter(product);
+		let products = await Product.catalog.filter(product);
 
 		const pagination = { pageSize: 21, page: 0};
 		$(() => { lib.carousel.execute("product-catalog-filter-box", Product.view.catalog.filter, products, pagination); });

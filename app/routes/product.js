@@ -13,6 +13,7 @@ router.get('/name/:name', productController.findByName);
 router.get('/filter', productController.filter);
 router.delete('/delete', productController.delete);
 
+router.get('/catalog/filter', productController.catalog.filter);
 router.get('/show/:product_code', productController.show);
 
 router.get('/datasheet/:product_code', productController.datasheet);
