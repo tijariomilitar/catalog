@@ -14,6 +14,7 @@ if(Product.controller.manage.create){
 			color: event.target.elements.namedItem("color").value,
 			size: event.target.elements.namedItem("size").value,
 			brand: event.target.elements.namedItem("brand").value,
+			status: event.target.elements.namedItem("status").value,
 			image: event.target.elements.namedItem("image").value
 		};
 

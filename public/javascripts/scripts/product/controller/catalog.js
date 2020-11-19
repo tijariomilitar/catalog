@@ -1,51 +1,5 @@
 Product.controller.catalog = {};
 
-Product.view.catalog = {};
-
-Product.catalog = {};
-Product.catalog.filter = async (product) => {
-	let response = await fetch("/product/catalog/filter?code="+product.code+"&name="+product.name+"&color="+product.color+"&size="+product.size+"&brand="+product.brand);
-	response = await response.json();
-
-	if(API.verifyResponse(response)){ return false };
-
-	return response.products;
-};
-
-Product.view.catalog.filter = async (products, pagination) => {
-	var html = "";
-	for (let i = pagination.page * pagination.pageSize; i < products.length && i < (pagination.page + 1) * pagination.pageSize; i++){
-		html += `<div class="box three ground padding-10 margin-top-10 pointer" onclick="window.location.href='/product/show/`+products[i].code+`'">`;
-		html += "<div class='container'>";
-		html += `<h3 class="box one center">`+products[i].code+` - `+products[i].name+` - `+products[i].color+`<h3>`;
-		if(products[i].image){
-			html += "<div class='box one'><img class='image-card' src='"+products[i].image+"'></div>";
-		} else {
-			html += "<div class='box one'><img class='image-card' src='/images/product/no-product.png'></div>";
-		};
-		html += "</div>";
-		html += "</div>";
-	};
-
-	document.getElementById("product-catalog-filter-box").style.visibility = "visible";
-	document.getElementById("product-catalog-container").innerHTML = html;
-};
-
-Product.view.catalog.card = {
-	image: {
-		show: (images, pagination, params) => {
-			let html = "";
-		    if(images.length){
-			    for (let i = pagination.page * pagination.pageSize; i < images.length && i < (pagination.page + 1) * pagination.pageSize;i++){
-					document.getElementById("product-"+images[i].product_id+"-catalog-card-img").src = images[i].url;
-				};
-		    } else {
-				document.getElementById("product-"+params[0]+"-catalog-card-img").src = "/images/product/no-product.png";
-		    };
-		}
-	}
-};
-
 Product.controller.catalog.filter = document.getElementById("product-catalog-filter-form");
 if(Product.controller.catalog.filter){
 	Product.controller.catalog.filter.addEventListener("submit", async (event) => {

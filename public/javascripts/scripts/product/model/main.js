@@ -1,6 +1,7 @@
 const Product = {}; 
 
 Product.save = async (product) => {
+	console.log(product);
 	let response = await fetch("/product/save", {
 		method: "POST",
 		headers: {'Content-Type': 'application/json'},

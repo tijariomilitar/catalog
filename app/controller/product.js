@@ -109,6 +109,7 @@ const productController = {
 			color: req.body.color,
 			size: req.body.size,
 			brand: req.body.brand,
+			status: req.body.status,
 			image: req.body.image
 		};
 
