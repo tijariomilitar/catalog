@@ -7,9 +7,9 @@ Product.view.catalog.filter = async (products, pagination) => {
 		html += "<div class='container'>";
 		html += `<h3 class="box one center">`+products[i].code+` - `+products[i].name+` - `+products[i].color+`<h3>`;
 		if(products[i].image){
-			html += "<div class='box one'><img class='image-card' src='"+products[i].image+"'></div>";
+			html += "<div class='box one'><img class='image-card' src='"+products[i].image+"' alt=''/></div>";
 		} else {
-			html += "<div class='box one'><img class='image-card' src='/images/product/no-product.png'></div>";
+			html += "<div class='box one'><img class='image-card' src='/images/product/no-product.png' alt=''/></div>";
 		};
 		html += "</div>";
 		html += "</div>";
