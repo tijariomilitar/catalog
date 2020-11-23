@@ -12,7 +12,7 @@ if(Product.controller.catalog.filter){
 			name: event.target.elements.namedItem("name").value,
 			code: event.target.elements.namedItem("code").value,
 			color: event.target.elements.namedItem("color").value,
-			brand: event.target.elements.namedItem("brand").value
+			brand: "J.A Rio Militar"
 		};
 
 		let products = await Product.catalog.filter(product);
