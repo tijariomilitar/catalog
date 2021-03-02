@@ -3,7 +3,7 @@ Product.view.catalog = {};
 Product.view.catalog.filter = async (products, pagination) => {
 	var html = "";
 	for (let i = pagination.page * pagination.pageSize; i < products.length && i < (pagination.page + 1) * pagination.pageSize; i++){
-		html += `<div class="box three ground padding-10 margin-top-10 pointer" onclick="window.location.href='/product/show/`+products[i].code+`'">`;
+		html += `<div class="box three ground padding-10 margin-top-10 pointer shadow" onclick="window.location.href='/product/show/`+products[i].code+`'">`;
 		html += "<div class='container'>";
 		html += `<h3 class="box one center">`+products[i].code+` - `+products[i].name+` - `+products[i].color+`<h3>`;
 		if(products[i].image){

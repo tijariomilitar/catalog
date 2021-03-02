@@ -4,7 +4,6 @@ const userController = require('./user');
 const lib = require('../../config/lib');
 
 const Product = require('../model/product');
-const Feedstock = require('../model/feedstock');
 
 const productController = {
 	index: async (req, res) => {

@@ -3,34 +3,92 @@
         <% include ./partials/head %>
 	</head>
 	<body>
-		<header>
+		<header class="image-fit" style="height:150px;background-image: url('https://images.iphonephotographyschool.com/22682/How-To-Blur-Background-On-iPhone.jpg')">
 			<div onclick="window.location.href='/'" href="#default" class="favicon"><img class="favicon-image" src="/images/favicon/favicon-black.png"></div>
 			<div class="right">
 				<a class="active" href="/login">Log in</a>
 			</div>
 		</header>
 		<section>
-			<div class="container">
-                <div class="box one center ground padding-10 margin-top-15">
-                	<h2 class="box one padding-10">Catálogo de produtos</h2>
-					<form id="product-catalog-filter-form" class="box one ground">
+			<!-- <div class="container">
+                <div class="box one center padding-10 margin-top-10">
+                	<h2 class="box one padding-10 paladino">Catálogo de produtos</h2>
+					<form id="product-catalog-filter-form" class="box one container">
 						<input type="hidden" name="location" value="product-catalog">
-						<input type="text" name="code" class="btn-generic-big" placeholder="Cód" autocomplete="off">
-						<input type="text" name="name" class="btn-generic-big" placeholder="Nome" autocomplete="off">
-						<select name="color" class="btn-generic-big" name="color">
+						<input type="text" name="code" class="box four input-generic margin-top-5" placeholder="Cód" autocomplete="off">
+						<input type="text" name="name" class="box four input-generic margin-top-5" placeholder="Nome" autocomplete="off">
+						<select name="color" class="box four input-generic margin-top-5" name="color">
 							<option value="">Cor</option>
 							<% for(i in productColors){ %>
 								<option value="<%= productColors[i].shortcut %>"><%= productColors[i].name %></option>
 							<% } %>
 						</select>
-						<input type="submit" class="btn-generic-big bold" value="Filtrar">
+						<input type="submit" class="box four input-generic margin-top-5 bold" value="Filtrar">
 					</form>
 				</div>
 				<div id="product-catalog-filter-box" class="box one center hide">
 					<div id="product-catalog-container" class="container"></div>
 	        		<% include ./partials/carousel %>
 				</div>
+			</div> -->
+			<div class="container padding-10 image-fit" style="background-image: url('http://favorpartners.com/wp-content/uploads/2017/08/module-25.jpg')">
+				<div class="box b4 georgia padding-10 margin-top-10 shadow">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+				<div class="box b3-4 georgia padding-10 margin-top-10 shadow">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+				<div class="box b4 georgia padding-10 margin-top-10 shadow">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+				<div class="box b4 georgia padding-10 margin-top-10 shadow">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+				<div class="box b4 georgia padding-10 margin-top-10 shadow">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+				<div class="box b4 georgia padding-10 margin-top-10 shadow">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
 			</div>
+			<div class="container padding-10" style="background-color: #222;color:#f0f0f0">
+				<div class="mobile-box three center">
+					<div class="box b1 padding-5">contato</div>
+					<div class="box b1 padding-5">instgram</div>
+					<div class="box b1 padding-5">facebook</div>
+					<div class="box b1 padding-5">email</div>
+				</div>
+				<div class="mobile-box three center">
+					<div class="box b1 padding-5">contato</div>
+					<div class="box b1 padding-5">instgram</div>
+					<div class="box b1 padding-5">facebook</div>
+					<div class="box b1 padding-5">email</div>
+				</div>
+				<div class="mobile-box three center">
+					<div class="box b1 padding-5">contato</div>
+					<div class="box b1 padding-5">instgram</div>
+					<div class="box b1 padding-5">facebook</div>
+					<div class="box b1 padding-5">email</div>
+				</div>
+			</div>
+			</div>
+
 		</section>
 		<div id="ajax-loader" class="ajax-loader">
 			<div class="loader"></div>
