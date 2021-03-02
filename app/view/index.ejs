@@ -2,28 +2,30 @@
 	<head>
         <% include ./partials/head %>
 	</head>
-	<body>
-		<header class="image-fit" style="height:150px;background-image: url('https://image.shutterstock.com/image-vector/vector-black-geometric-background-design-260nw-1223389576.jpg');">
+	<body style="background-color:#323232;color:#f0f0f0;">
+		<header class="image-fit" style="background-color:#141414;background-image: url('/images/background/bg2.png')">
 			<div onclick="window.location.href='/'" href="#default" class="favicon"><img class="favicon-image" src="/images/favicon/favicon-white.png"></div>
-			<div class="right">
-				<a class="active" href="/login">Log in</a>
+			<div class="right padding-10">
+				<img class="icon size-40 radius-50" src="/images/icon/user.png">
 			</div>
 		</header>
 		<section>
+			<div class="container image-fit height-350" style="background-image: url('/images/background/banner1.png')">
+			</div>
 			<div class="container">
-                <div class="box one center padding-10 margin-top-10">
-                	<h2 class="box one padding-10 paladino">Catálogo de produtos</h2>
+                <div class="box one center padding-10 margin-top-10 border">
+                	<h2 class="box b1 avant-garde">Catálogo de produtos</h2>
 					<form id="product-catalog-filter-form" class="box one container">
 						<input type="hidden" name="location" value="product-catalog">
-						<input type="text" name="code" class="box four input-generic margin-top-5" placeholder="Cód" autocomplete="off">
-						<input type="text" name="name" class="box four input-generic margin-top-5" placeholder="Nome" autocomplete="off">
-						<select name="color" class="box four input-generic margin-top-5" name="color">
+						<input type="text" name="code" class="box four input-generic margin-top-5 center bold" placeholder="Cód" autocomplete="off">
+						<input type="text" name="name" class="box four input-generic margin-top-5 center bold" placeholder="Nome" autocomplete="off">
+						<select name="color" class="box four input-generic margin-top-5 center bold" style="color:#3c3c3c;" name="color">
 							<option value="">Cor</option>
 							<% for(i in productColors){ %>
 								<option value="<%= productColors[i].shortcut %>"><%= productColors[i].name %></option>
 							<% } %>
 						</select>
-						<input type="submit" class="box four input-generic margin-top-5 bold" value="Filtrar">
+						<input type="submit" name="submit" class="box four input-generic margin-top-5 bold" style="color:#3c3c3c;" value="Filtrar">
 					</form>
 				</div>
 				<div id="product-catalog-filter-box" class="box one center hide">
@@ -33,18 +35,76 @@
 			</div>
 			<div class="container padding-10" style="background-color:#3c3c3c;color:#c8c8c8">
 				<div class="box b4 container center padding-10">
-					<div class="box b1 center bold">Aliste-se no Batalhão JA Rio Militar</div>
-					<div class="box b1 center">e fique por dentro das novidades</div>
+					<div class="box b1 center bold avant-garde">Aliste-se no Batalhão JA Rio Militar</div>
+					<div class="box b1 center avant-garde">e fique por dentro das novidades</div>
 				</div>
 				<div class="box b3-4 container center">
 					<input type="text" class="box b3 input-generic center bold" name="customer_name" placeholder="Nome">
 					<input type="text" class="box b3 input-generic center bold" name="customer_email" placeholder="E-mail">
 					<input type="text" class="box b12 input-generic center bold" name="customer_uf" placeholder="UF">
-					<input type="text" class="box b4 submit-generic center" value="Enviar" style="color:#1e1e1e">
+					<input type="text" class="box b4 submit-generic pointer center" value="Enviar" style="color:#1e1e1e">
 				</div>
 			</div>
-			<div class="container padding-10" style="background-color:#323232;color:#c8c8c8">
-				
+			<div class="container padding-10" style="background-color:#141414;background-image: url('/images/background/bg2.png');color:#c8c8c8">
+				<div class="box b10"></div>
+				<div class="box b8 border-right"><img class="image-box" src="/images/favicon/favicon-white.png"></div>
+				<div class="box b8">
+					<div class="box b1 bold avant-garde pointer margin-top-15">JA Rio Militar</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Quem somos</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Blog</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Contato</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Login</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Carrinho</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Meus pedidos</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Comparar Produtos</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Portal B2B</div>
+				</div>
+				<div class="box b8">
+					<div class="box b1 bold avant-garde pointer margin-top-15">Produtos</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Coletes</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Acessórios modulares</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Bandoleiras</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Coldres</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Bornais</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Cintos</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Mochilas</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Luvas</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Fardas</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Gandoletas</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Calçados</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Vestuário</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Segurança pública</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Lanternas</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Hidratação</div>
+				</div>
+				<div class="box b8">
+					<div class="box b1 bold avant-garde pointer margin-top-15">Dúvidas</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Cliente VIP</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Trocas e devoluções</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Pagamentos</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Cadastro</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Pedidos</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Entregas</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Política de privacidade</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Política de pós-venda</div>
+				</div>
+				<div class="box b8">
+					<div class="box b1 bold avant-garde pointer margin-top-15">Contato</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Fale conosco</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Trocas e devoluções</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Seja revendedor</div>
+					<div class="box b1 font-07 margin-top-5 avant-garde pointer">Trabalhe conosco</div>
+				</div>
+				<div class="box b8 container margin-top-10">
+					<div class="box b1 avant-garde bold center">Fale conosco</div>
+					<div class="box b1 avant-garde pointer font-08 center">comercial@jariomilitar.com</div>
+					<div class="box b1 container padding-10 center">
+						<div class="mobile-box b2 margin-top-5"><img class="height-30" src="/images/icon/visa-icon.png"></div>
+						<div class="mobile-box b2 margin-top-5"><img class="height-30" src="/images/icon/master-card-icon.png"></div>
+						<div class="mobile-box b2 margin-top-5"><img class="height-30" src="/images/icon/boleto-icon.png"></div>
+						<div class="mobile-box b2 margin-top-5"><img class="height-30" src="/images/icon/pix-icon.png"></div>
+					</div>
+				</div>
 			</div>
 			<div class="container padding-10" style="background-color:#1e1e1e;color:#c8c8c8">
 				<div class="box b2 font-08 avant-garde margin-top-10 padding-10">
@@ -61,6 +121,13 @@
 						<div class="mobile-box b4"><img class="height-30" src="/images/icon/pix-icon.png"></div>
 					</div>
 				</div>
+				<div class="box b4 container margin-top-10">
+					<div class="mobile-box b4 center"><img class="height-50" src="/images/icon/sac.png"></div>
+					<div class="box b3-4 padding-10">
+						<div class="mobile-box b1">RJ (21) 99246-0116</div>
+						<div class="mobile-box b1">MG (33) 99999-9961</div>
+					</div>
+				</div>
 			</div>
 		</section>
 		<div id="ajax-loader" class="ajax-loader">
@@ -72,10 +139,13 @@
 		<script src="/javascripts/scripts/product/model/main.js"></script>
 		<script src="/javascripts/scripts/product/view/main.js"></script>
 		<script src="/javascripts/scripts/product/controller/main.js"></script>
-		<script src="/javascripts/scripts/product/controller/catalog.js"></script>
 
 		<script src="/javascripts/scripts/product/model/catalog.js"></script>
 		<script src="/javascripts/scripts/product/controller/catalog.js"></script>
 		<script src="/javascripts/scripts/product/view/catalog.js"></script>
+
+		<script type="text/javascript">
+			Product.controller.catalog.filter.submit.click();
+		</script>
 	</footer>
 </html>
