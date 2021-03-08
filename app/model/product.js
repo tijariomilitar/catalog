@@ -141,6 +141,13 @@ Product.feedstock = {
 	}
 };
 
+Product.catalog = {
+	filter: (params, values, inners, status) => {
+		let query = lib.filterByLikeAndInnerJoinAndByStatus(params, values, "product_price", inners, "status", status, "cms_wt_erp", "product", "code", "ASC");
+		return db(query);
+	}
+};
+
 Product.categorySave = async (category) => {
 	let query = "INSERT INTO backup.product_category (name, shortcut) VALUES ('"+category.name+"','"+category.shortcut+"');";
 	return db(query);

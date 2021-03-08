@@ -2,18 +2,18 @@
 	<head>
         <% include ./partials/head %>
 	</head>
-	<body style="background-color:#323232;color:#f0f0f0;">
-		<header class="image-fit" style="background-color:#141414;background-image: url('/images/background/bg2.png')">
-			<div onclick="window.location.href='/'" href="#default" class="favicon"><img class="favicon-image" src="/images/favicon/favicon-white.png"></div>
-			<div class="right padding-10">
-				<img class="icon size-40 radius-50" src="/images/icon/user.png">
-			</div>
+	<body>
+		<header>
+			<div onclick="window.location.href='/'" href="#default" class="favicon"><img class="favicon-image" src="/images/favicon/favicon-black.png"></div>
+			<div class="right padding-15 em08 avant-garde center"><div class="pointer">Entrar</div></div>
+			<div class="right padding-15 em08 avant-garde center"><div class="pointer">Cadastrar-me</div></div>
 		</header>
+        <% include ./partials/nav %>
 		<section>
 			<!-- <div class="container image-fit height-350" style="background-image: url('/images/background/banner1.png')"> -->
 			</div>
-			<div class="container">
-                <div class="box one center padding-10 margin-top-10 border">
+			<div class="container" style="min-height:500px;">
+                <div class="box one center padding-10 margin-top-10 shadow" style="display:none">
                 	<div class="box b1 font-12 avant-garde bold">Catálogo de produtos</div>
 					<form id="product-catalog-filter-form" class="box one container">
 						<input type="hidden" name="location" value="product-catalog">
@@ -28,7 +28,7 @@
 						<input type="submit" name="submit" class="box four input-generic margin-top-5 bold" style="color:#3c3c3c;" value="Filtrar">
 					</form>
 				</div>
-				<div id="product-catalog-filter-box" class="box one center hide">
+				<div id="product-catalog-filter-box" class="box one hide">
 					<div id="product-catalog-container" class="container"></div>
 	        		<% include ./partials/carousel %>
 				</div>
@@ -95,29 +95,29 @@
 					<div class="box b1 font-07 margin-top-5 avant-garde pointer center">Seja revendedor</div>
 					<div class="box b1 font-07 margin-top-5 avant-garde pointer center">Trabalhe conosco</div>
 				</div> -->
-				<div class="box b4 container center">
-					<div class="box b1 avant-garde bold center margin-top-10">Fale conosco</div>
+				<div class="box b4 container margin-top-5">
+					<div class="box b1 avant-garde bold center">Fale conosco</div>
 					<div class="box b1 avant-garde margin-top-5 font-08 center">comercial@jariomilitar.com</div>
 					<div class="box b1 avant-garde margin-top-5 font-08 center">(21) 3449-9000</div>
 					<div class="box b1 avant-garde margin-top-5 font-08 center">(21) 96421-1738</div>
 				</div>
-				<div class="box b4 container center">
-					<div class="box b1 container padding-10 center ">
-						<div class="box b1 avant-garde bold center margin-top-10">Redes sociais</div>
-						<div class="mobile-box b4 margin-top-5"><img class="height-40 pointer" src="/images/icon/instagram.png" onclick="lib.openExternalLink('instagram.com/jariomilitar')"></div>
-						<div class="mobile-box b4 margin-top-5"><img class="height-40 pointer" src="/images/icon/facebook.png" onclick="lib.openExternalLink('facebook.com/jariomilitarofficial')"></div>
-						<div class="mobile-box b4 margin-top-5"><img class="height-40 pointer" src="/images/icon/youtube.png" onclick="lib.openExternalLink('')"></div>
-						<div class="mobile-box b4 margin-top-5"><img class="height-40 pointer" src="/images/icon/globe-grid.png" onclick="lib.openExternalLink('jariomilitar.com.br')"></div>
+				<div class="box b4 container center margin-top-5">
+					<div class="box b1 container padding-10 center">
+						<div class="box b1 avant-garde bold center">Redes sociais</div>
+						<div class="mobile-box b3 margin-top-5"><img class="height-40 pointer" src="/images/icon/instagram.png" onclick="lib.openExternalLink('instagram.com/jariomilitar')"></div>
+						<div class="mobile-box b3 margin-top-5"><img class="height-40 pointer" src="/images/icon/facebook.png" onclick="lib.openExternalLink('facebook.com/jariomilitarofficial')"></div>
+						<div class="mobile-box b3 margin-top-5"><img class="height-40 pointer" src="/images/icon/youtube.png" onclick="lib.openExternalLink('')"></div>
+						<!-- <div class="mobile-box b4 margin-top-5"><img class="height-40 pointer" src="/images/icon/globe-grid.png" onclick="lib.openExternalLink('jariomilitar.com.br')"></div> -->
 					</div>
 				</div>
 			</div>
 			<div class="container padding-10" style="background-color:#1e1e1e;color:#c8c8c8">
-				<div class="box b2 font-08 avant-garde margin-top-10 padding-10">
+				<div class="box b3-4 font-08 avant-garde margin-top-10 padding-10">
 					© 2021 JA Rio Militar - Loja e fábrica de artigos militares e esportivos. Todos os direitos reservados.
 					JC CARVALHO ME. / CNPJ: 14.114.604/0001-73. Inscrição Estadual: 79.695.874
 					Endereço Rua Correa Seára, 100, LJ 01, Magalhães Bastos, Rio de Janeiro - RJ. CEP: 21750-320
 				</div>
-				<div class="box b4 container margin-top-10 center">
+				<!-- <div class="box b4 container margin-top-10 center">
 					<div class="box b1 avant-garde center">Formas de pagamento</div>
 					<div class="box b1 container padding-10 center">
 						<div class="mobile-box b4"><img class="height-30" src="/images/icon/visa-icon.png"></div>
@@ -125,7 +125,7 @@
 						<div class="mobile-box b4"><img class="height-30" src="/images/icon/boleto-icon.png"></div>
 						<div class="mobile-box b4"><img class="height-30" src="/images/icon/pix-icon.png"></div>
 					</div>
-				</div>
+				</div> -->
 				<div class="box b4 container center">
 					<div class="mobile-box b4 center"><img class="height-50" src="/images/icon/sac.png"></div>
 					<div class="mobile-box b3-4 center padding-10">

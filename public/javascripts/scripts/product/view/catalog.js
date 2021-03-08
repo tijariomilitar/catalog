@@ -3,14 +3,15 @@ Product.view.catalog = {};
 Product.view.catalog.filter = async (products, pagination) => {
 	var html = "";
 	for (let i = pagination.page * pagination.pageSize; i < products.length && i < (pagination.page + 1) * pagination.pageSize; i++){
-		html += `<div class="box three ground padding-10 margin-top-10 pointer" onclick="window.location.href='/product/show/`+products[i].code+`'">`;
+		html += `<div class="box three ground padding-10 margin-top-10 pointer shadow-hover" onclick="window.location.href='/product/show/`+products[i].code+`'">`;
 		html += "<div class='container'>";
-		html += `<h3 class="box one center" style="color:#323232;">`+products[i].code+` - `+products[i].name+` - `+products[i].color+`<h3>`;
 		if(products[i].image){
 			html += "<div class='box one'><img class='image-card' src='"+products[i].image+"' alt=''/></div>";
 		} else {
 			html += "<div class='box one'><img class='image-card' src='/images/product/no-product.png' alt=''/></div>";
 		};
+		html += `<div class="box one avant-garde center em10 padding-10 bold" style="color:#323232;">`+products[i].name+` - `+products[i].color+`</div>`;
+		html += "<div class='box one em15 center italic bold' style='color:#467846;'>R$"+products[i].price.toFixed(2)+"</div>"
 		html += "</div>";
 		html += "</div>";
 	};

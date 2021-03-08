@@ -4,7 +4,6 @@ Product.controller.catalog.filter = document.getElementById("product-catalog-fil
 if(Product.controller.catalog.filter){
 	Product.controller.catalog.filter.addEventListener("submit", async (event) => {
 		event.preventDefault();
-		document.getElementById('ajax-loader').style.visibility = 'visible';
 
 		// event.target.elements.namedItem("brand");
 
@@ -12,14 +11,20 @@ if(Product.controller.catalog.filter){
 			name: event.target.elements.namedItem("name").value,
 			code: event.target.elements.namedItem("code").value,
 			color: event.target.elements.namedItem("color").value,
-			brand: "J.A Rio Militar"
+			brand: "J.A Rio Militar",
+			price_category_id: 3
 		};
 
+
+		document.getElementById('ajax-loader').style.visibility = 'visible';
 		let products = await Product.catalog.filter(product);
+		document.getElementById('ajax-loader').style.visibility = 'hidden';
+		if(!products){ return false };
+
+		console.log(products);
 
 		const pagination = { pageSize: 21, page: 0};
 		$(() => { lib.carousel.execute("product-catalog-filter-box", Product.view.catalog.filter, products, pagination); });
 
-		document.getElementById('ajax-loader').style.visibility = 'hidden';
 	});
 };

@@ -527,18 +527,17 @@ const productController = {
 				params.push("brand");
 				values.push(req.query.brand);
 			};
-			
-			params.push("status");
-			values.push("Disponível");
+
+			let status = "Disponível";
+
+			let inners = [
+				["cms_wt_erp.product.id","cms_wt_erp.product_price.product_id"],
+				["cms_wt_erp.product_price.category_id", req.query.price_category_id]
+			];
 
 			try {
-				if(req.query.name){
-					const products = await Product.filter(req.query.name, params, values);
-					res.send({ products });
-				} else {
-					const products = await Product.filter(false, params, values);
-					res.send({ products });
-				};
+				const products = await Product.catalog.filter(params, values, inners, status);
+				res.send({ products });
 			} catch (err) {
 				console.log(err);
 				res.send({ msg: "Ocorreu um erro ao filtrar os produtos." });

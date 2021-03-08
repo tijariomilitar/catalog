@@ -1,5 +1,17 @@
+<style type="text/css">
+	.carousel-btn-1 {
+		transition: all 0.7s ease 0s;
+	}
+
+	.carousel-btn-1:hover {
+		transition: all 0.3s ease 0s;
+	}
+
+</style>
+
 <div name="carousel-navigation" class="box one container padding-10 margin-top-10 center">
-	<button name="carousel-previous" class="mobile-box b3 input-generic box-hover pointer" style="color:#323232;" autocomplete="off" disabled>&lsaquo;&lsaquo;</button>
-    <div class="mobile-box b3 font-15 avant-grande" name="carousel-page"></div>
-    <button name="carousel-next" class="mobile-box b3 input-generic box-hover pointer" style="color:#323232;" autocomplete="off" disabled>&rsaquo;&rsaquo;</button>
+	<div class="mobile-box b5"></div>
+	<button name="carousel-previous" class="mobile-box b5 carousel-btn-1 border-explicit box-hover em15 pointer" disabled>&lsaquo;&lsaquo;</button>
+    <div name="carousel-page" class="mobile-box b5 em15 avant-grande center" style="color: #323232"></div>
+    <button name="carousel-next" class="mobile-box b5 carousel-btn-1 border-explicit box-hover em15 pointer" disabled>&rsaquo;&rsaquo;</button>
 </div>
