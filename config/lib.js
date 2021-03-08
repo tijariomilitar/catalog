@@ -193,13 +193,13 @@ module.exports = {
 			query += "WHERE ";
 			for(i in params){
 				if(i == params.length - 1){
-					query += ""+params[i]+" like '%"+values[i]+"%' AND "+status+" = '"+status_value+"' ";
+					query += params[i]+" like '%"+values[i]+"%' AND "+status+" = '"+status_value+"' ";
 				} else {
-					query += ""+params[i]+" like '%"+values[i]+"%' AND "+status+" = '"+status_value+"' OR ";
+					query += params[i]+" like '%"+values[i]+"%' AND ";
 				};
 			};
 		};
-		if(!params.length){ query += "WHERE "+status+" like '%"+status_value+"%' ";	};
+		if(!params.length){ query += "WHERE "+status+" = '"+status_value+"' ";	};
 		query += "ORDER BY "+orderParam+" "+order+";";
 
 		return query;

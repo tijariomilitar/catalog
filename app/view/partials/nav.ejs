@@ -1,51 +1,53 @@
 <div id="mySidenav" class="sidenav">
   <span class="closebtn pointer" onclick="closeNav()">&times;</span>
-  <select class="padding-5 margin-top-5 hide-disabled" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-	    <option value="" disabled selected>Financeiro</option>
-	    <option value="/financial/index">Gerir Receitas / Despesas</option>
-	    <option value="/financial/income">Configurar Receitas</option>
-	    <option value="/financial/outcome">Configurar Despesas</option>
+  <select class="padding-5 margin-top-5 hide-disabled" onchange="this.options[this.selectedIndex].value && (Product.controller.catalog.filter.name.value = this.options[this.selectedIndex].value) && Product.controller.catalog.filter.submit.click()">
+	    <option value="" disabled selected>Coletes</option>
+	    <option value="close">Close</option>
+	    <option value="plate carrier">Plate Carrier</option>
+	    <option value="ja3">JA3</option>
+	    <option value="bope">Bope</option>
 	</select>
 
-	<select class="padding-5 margin-top-5 hide-disabled" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-	    <option value="" disabled selected>Produtos</option>
-	    <option value="/product/manage">Gerir Produtos</option>
-	    <option value="/product/price">Tabelas de Preço</option>
-	    <option value="/product/package">Gerir Pacotes</option>
+	<select class="padding-5 margin-top-5 hide-disabled" onchange="this.options[this.selectedIndex].value && (Product.controller.catalog.filter.name.value = this.options[this.selectedIndex].value) && Product.controller.catalog.filter.submit.click()">
+	    <option value="" disabled selected>Acessórios modulares</option>
+	    <option value="camelback modular">P. Camelback</option>
+	    <option value="bolsa pequena modular">Bolsa Pequena</option>
+	    <option value="bolsa média modular">Bolsa média</option>
+	    <option value="bolsa grande modular">Bolsa grande</option>
+	    <option value="coldre modular">Coldre</option>
+	    <option value="Pistola duplo">P. c. Pistola duplo</option>
+	    <option value="Porta carregador fuzil">P. c. Fuzil</option>
+	    <option value="Porta radio">P. Rádio</option>
+	    <option value="drop mag">Drop Mag</option>
 	</select>
 
-	<select class="padding-5 margin-top-5 hide-disabled" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-	    <option value="" disabled selected>Matéria-Prima</option>
-	    <option value="/feedstock/manage">Gerir Materias-Primas</option>
-	    <option value="/feedstock/supplier">Gerir Fornecedores</option>
-	    <option value="/feedstock/purchase">Pedido de compra</option>
-	    <option value="/feedstock/storage">Estoque</option>
-	    <option value="/feedstock/storage/manage">Gerir Estoque</option>
-	    <option value="/feedstock/purchase/manage">Gerir Compras</option>
-	    <option value="/feedstock/request">Pedido avulso</option>
-	    <option value="/feedstock/regress">Pedido de retorno</option>
+	<select class="padding-5 margin-top-5 hide-disabled" onchange="this.options[this.selectedIndex].value && (Product.controller.catalog.filter.name.value = this.options[this.selectedIndex].value) && Product.controller.catalog.filter.submit.click()">
+	    <option value="" disabled selected>Bornais</option>
+	    <option value="Bornal Fuzil Tic Tac">Bornal Fuzil Tic Tac</option>
+	    <option value="Bornal 3 PST">Bornal 3 PST</option>
+	    <option value="Bornal Compact">Bornal Compact</option>
+	    <option value="Bornal tático">Bornal tático</option>
+	    <option value="Bornal modular">Bornal modular</option>
 	</select>
 
-	<select class="padding-5 margin-top-5 hide-disabled" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-	    <option value="" disabled selected>Produção</option>
-	    <option value="/production/simulation">Simular Produção</option>
-	    <option value="/production">Solicitar Produção</option>
-	    <option value="/production/manage">Gerir Produções</option>
+	<select class="padding-5 margin-top-5 hide-disabled" onchange="this.options[this.selectedIndex].value && (Product.controller.catalog.filter.name.value = this.options[this.selectedIndex].value) && Product.controller.catalog.filter.submit.click()">
+	    <option value="" disabled selected>Coldres</option>
+	    <option value="coldre modular">Coldre modular</option>
+	    <option value="Coldre de Perna Universal">Coldre de Perna Universal</option>
+	    <option value="Coldre de Perna Robocop">Coldre de Perna Robocop</option>
+	    <option value="Mini Coldre p/ Cinto">Mini Coldre p/ Cinto</option>
 	</select>
 
-	<select class="padding-5 margin-top-5 hide-disabled" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-	    <option value="" disabled selected>Comercial</option>
-	    <option value="/customer">Clientes</option>
-	    <option value="/sale">Nova venda</option>
-	    <option value="/sale/manage">Vendas</option>
+	<select class="padding-5 margin-top-5 hide-disabled" onchange="this.options[this.selectedIndex].value && (Product.controller.catalog.filter.name.value = this.options[this.selectedIndex].value) && Product.controller.catalog.filter.submit.click()">
+	    <option value="" disabled selected>Cintos</option>
+	    <option value="Cinto Tático Fivela Plástico">Cinto Tático</option>
+	    <option value="cinto modular">Cinto Modular</option>
+	    <option value="Presilha Emborrachada P/ Cinto">Presilha Emborrachada</option>
 	</select>
 
-	<select class="padding-5 margin-top-5 hide-disabled" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-	    <option value="" disabled selected>E-commerce</option>
-	    <option value="/ecommerce/sale">Nova venda</option>
-	    <option value="/ecommerce/sale/gathering">pedidos em coleta</option>
-	    <option value="/ecommerce/sale/triage">Triagem</option>
-	    <option value="/ecommerce/sale/manage">Gerir Vendas</option>
+	<select class="padding-5 margin-top-5 hide-disabled" onchange="this.options[this.selectedIndex].value && (Product.controller.catalog.filter.name.value = this.options[this.selectedIndex].value) && Product.controller.catalog.filter.submit.click()">
+	    <option value="" disabled selected>Bandoleiras</option>
+	    <option value="Bandoleira J.A 1 ponto">Bandoleira 1 ponto</option>
 	</select>
 </div>
 

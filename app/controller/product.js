@@ -518,6 +518,11 @@ const productController = {
 				values.push(req.query.code);
 			};
 
+			if(req.query.name){
+				params.push("name");
+				values.push(req.query.name);
+			};
+
 			if(req.query.color){
 				params.push("color");
 				values.push(req.query.color);

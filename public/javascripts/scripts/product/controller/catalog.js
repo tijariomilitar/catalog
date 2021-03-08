@@ -15,16 +15,12 @@ if(Product.controller.catalog.filter){
 			price_category_id: 3
 		};
 
-
 		document.getElementById('ajax-loader').style.visibility = 'visible';
 		let products = await Product.catalog.filter(product);
 		document.getElementById('ajax-loader').style.visibility = 'hidden';
 		if(!products){ return false };
 
-		console.log(products);
-
 		const pagination = { pageSize: 21, page: 0};
-		$(() => { lib.carousel.execute("product-catalog-filter-box", Product.view.catalog.filter, products, pagination); });
-
+		(function(){ lib.carousel.execute("product-catalog-filter-box", Product.view.catalog.filter, products, pagination); }());
 	});
 };
