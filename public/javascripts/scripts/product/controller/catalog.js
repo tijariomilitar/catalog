@@ -22,5 +22,7 @@ if(Product.controller.catalog.filter){
 
 		const pagination = { pageSize: 21, page: 0};
 		(function(){ lib.carousel.execute("product-catalog-filter-box", Product.view.catalog.filter, products, pagination); }());
+
+		closeNav();
 	});
 };
