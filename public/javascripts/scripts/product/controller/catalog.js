@@ -5,8 +5,6 @@ if(Product.controller.catalog.filter){
 	Product.controller.catalog.filter.addEventListener("submit", async (event) => {
 		event.preventDefault();
 
-		// event.target.elements.namedItem("brand");
-
 		let product = {
 			name: event.target.elements.namedItem("name").value,
 			code: event.target.elements.namedItem("code").value,
@@ -19,6 +17,8 @@ if(Product.controller.catalog.filter){
 		let products = await Product.catalog.filter(product);
 		document.getElementById('ajax-loader').style.visibility = 'hidden';
 		if(!products){ return false };
+
+		products = lib.sort(products, "code");
 
 		const pagination = { pageSize: 21, page: 0};
 		(function(){ lib.carousel.execute("product-catalog-filter-box", Product.view.catalog.filter, products, pagination); }());

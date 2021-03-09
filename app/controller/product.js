@@ -541,8 +541,10 @@ const productController = {
 			];
 
 			try {
-				const products = await Product.catalog.filter(params, values, inners, status);
-				res.send({ products });
+				let products = await Product.catalog.filter(params, values, inners, status);
+				let packages = await Product.package.filter(req.query.name, ["status"], [status]);
+				products = products.concat(packages);
+				res.send({ products: products });
 			} catch (err) {
 				console.log(err);
 				res.send({ msg: "Ocorreu um erro ao filtrar os produtos." });

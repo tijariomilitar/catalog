@@ -83,59 +83,62 @@ Product.image = {
 	}
 };
 
-Product.feedstock = {
-	add: async (product_feedstock) => {
-		let query = "INSERT INTO cms_wt_erp.product_feedstock (product_id, feedstock_id, uom, amount, measure, category_id) VALUES ('"
-			+product_feedstock.product_id+"', '"
-			+product_feedstock.feedstock_id+"', '"
-			+product_feedstock.uom+"', '"
-			+product_feedstock.amount+"', '"
-			+product_feedstock.measure+"', '"
-			+product_feedstock.category_id+"');";
+Product.package = {
+	save: async (package) => {
+		let query = "INSERT INTO cms_wt_erp.product_package (code, name, color, price) VALUES ('"
+			+package.code+"', '"
+			+package.name+"', '"
+			+package.color+"', '"
+			+package.price+"');";
 		return db(query);
 	},
-	update: async (product_feedstock) => {
-		let query = "UPDATE cms_wt_erp.product_feedstock SET amount='"+product_feedstock.amount+"', measure='"+product_feedstock.measure+"', category_id='"+product_feedstock.category_id+"' WHERE id='"+product_feedstock.id+"';";
+	update: async (package) => {
+		let query = "UPDATE cms_wt_erp.product_package SET code='"+package.code
+			+"', name='"+package.name
+			+"', color='"+package.color
+			+"', price='"+package.price+"' WHERE id='"+package.id+"';";
+		return db(query);
+	},
+	filter: async (name, params, values) => {
+		let query = lib.filterQueryName(name, params, values, "cms_wt_erp", "product_package", "code", "ASC");
+		return db(query);
+	},
+	findByCode: async (code) => {
+		let query = "SELECT * FROM cms_wt_erp.product_package WHERE code='"+code+"';";
 		return db(query);
 	},
 	findById: async (id) => {
-		let query = "SELECT * FROM cms_wt_erp.product_feedstock WHERE id='"+id+"';";
+		let query = "SELECT * FROM cms_wt_erp.product_package WHERE id='"+id+"';";
+		return db(query);	
+	},
+	delete: async (id) => {
+		let query = "DELETE FROM cms_wt_erp.product_package WHERE id='"+id+"';";
 		return db(query);
 	},
-	findByFeedstockId: async (id) => {
-		let query = "SELECT * FROM cms_wt_erp.product_feedstock WHERE feedstock_id='"+id+"';";
-		return db(query);
-	},
-	list: async (id) => {
-		let query = "SELECT * FROM cms_wt_erp.product_feedstock WHERE product_id='"+id+"';";
-		return db(query);
-	},
-	remove: async (id) => {
-		let query = "DELETE FROM cms_wt_erp.product_feedstock WHERE id='"+id+"';";
-		return db(query);
-	},
-	removeByProductId: async (id) => {
-		let query = "DELETE FROM cms_wt_erp.product_feedstock WHERE product_id='"+id+"';";
-		return db(query);
-	},
-	removeByFeedstockId: async (id) => {
-		let query = "DELETE FROM cms_wt_erp.product_feedstock WHERE feedstock_id='"+id+"';";
-		return db(query);
-	},
-	category: {
-		save: async (product_feedstock_category) => {
-			let query = "INSERT INTO cms_wt_erp.product_feedstock_category (product_id, name) VALUES ('"
-				+product_feedstock_category.product_id+"', '"
-				+product_feedstock_category.name+"');";
-			return db(query);		
-		},
-		// todo create findById
-		list: async (product_id) => {
-			let query = "SELECT * FROM cms_wt_erp.product_feedstock_category WHERE product_id='"+product_id+"';";
+	product: {
+		add: async (package_id, product) => {
+			let query = "INSERT INTO cms_wt_erp.product_package_product (package_id, product_id, product_code, product_info, amount) VALUES ('"
+				+package_id+"','"
+				+product.id+"','"
+				+product.code+"','"
+				+product.info+"','"
+				+product.amount+"');";
 			return db(query);
 		},
-		update: async (product_feedstock_category) => {
-			let query = "UPDATE cms_wt_erp.product_feedstock_category SET name='"+product_feedstock_category.name+"' WHERE id='"+product_feedstock_category.id+"';";
+		list: async (package_id) => {
+			let query = "SELECT * FROM cms_wt_erp.product_package_product WHERE package_id='"+package_id+"' ORDER BY id ASC;";
+			return db(query);
+		},
+		update: async (package_product_id, product) => {
+			let query = "UPDATE cms_wt_erp.product_package_product SET amount='"+product.amount+"' WHERE id='"+package_product_id+"';";
+			return db(query);
+		},
+		remove: async (package_product_id) => {
+			let query = "DELETE FROM cms_wt_erp.product_package_product WHERE id='"+package_product_id+"';";
+			return db(query);
+		},
+		removeAll: async (package_id) => {
+			let query = "DELETE FROM cms_wt_erp.product_package_product WHERE package_id='"+package_id+"';";
 			return db(query);
 		}
 	}
