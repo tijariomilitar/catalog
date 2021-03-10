@@ -115,6 +115,12 @@ Product.package = {
 		let query = "DELETE FROM cms_wt_erp.product_package WHERE id='"+id+"';";
 		return db(query);
 	},
+	image: {
+		list: async (id) => {
+			let query = "SELECT * FROM cms_wt_erp.product_package_image WHERE package_id='"+id+"';";
+			return db(query);
+		}
+	},
 	product: {
 		add: async (package_id, product) => {
 			let query = "INSERT INTO cms_wt_erp.product_package_product (package_id, product_id, product_code, product_info, amount) VALUES ('"

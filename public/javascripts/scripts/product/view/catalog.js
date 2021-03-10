@@ -3,7 +3,11 @@ Product.view.catalog = {};
 Product.view.catalog.filter = async (products, pagination) => {
 	var html = "";
 	for (let i = pagination.page * pagination.pageSize; i < products.length && i < (pagination.page + 1) * pagination.pageSize; i++){
-		html += `<div class="box three ground padding-10 margin-top-10 pointer shadow-hover" onclick="window.location.href='/product/show/`+products[i].code+`'">`;
+		if(products[i].product_id){
+			html += `<div class="box three ground padding-10 margin-top-10 pointer shadow-hover" onclick="window.location.href='/product/show/`+products[i].product_id+`'">`;
+		} else {
+			html += `<div class="box three ground padding-10 margin-top-10 pointer shadow-hover" onclick="window.location.href='/product/package/show/`+products[i].id+`'">`;
+		};
 		html += "<div class='container'>";
 		if(products[i].image){
 			html += "<div class='box one'><img class='image-card' src='"+products[i].image+"' alt=''/></div>";
