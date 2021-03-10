@@ -6,9 +6,9 @@ Product.view.catalog.filter = async (products, pagination) => {
 	for(let i in products){
 		html += "<div class='box b2 container ground pointer box-hover padding-10 margin-top-5 border' onclick='window.location.href=`/product/show/"+products[i].product_id+"`'>";
 		if(products[i].image){
-			html += "<div class='mobile-box b12 center'><img class='height-50' src='"+products[i].image+"' alt=''/></div>";
+			html += "<div class='mobile-box b12 center'><img class='size-40' src='"+products[i].image+"' alt=''/></div>";
 		} else {
-			html += "<div class='mobile-box b12 center'><img class='height-50' src='/images/product/no-product.png' alt=''/></div>";
+			html += "<div class='mobile-box b12 center'><img class='size-40' src='/images/product/no-product.png' alt=''/></div>";
 		};
 		html += `<div class="mobile-box b4 avant-garde center em10 padding-10 bold" style="color:#323232;">`+products[i].name+` - `+products[i].color+`</div>`;
 		html += "<div class='mobile-box b6 center border-left container'>";
