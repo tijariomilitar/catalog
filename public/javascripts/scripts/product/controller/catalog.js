@@ -22,7 +22,7 @@ if(Product.controller.catalog.filter){
 
 		console.log(products);
 
-		const pagination = { pageSize: 21, page: 0};
+		const pagination = { pageSize: 28, page: 0};
 		(function(){ lib.carousel.execute("product-catalog-filter-box", Product.view.catalog.filter, products, pagination); }());
 
 		closeNav();

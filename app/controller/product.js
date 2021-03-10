@@ -66,6 +66,8 @@ const productController = {
 		let product = await Product.findById(req.params.id);
 		product = { ...product[0] };
 		product.images = await Product.image.list(product.id);
+		let price = await Product.price.find({ category_id: 3, product_id: req.params.id });
+		product.price = price[0].price;
 		
 		try{
 			res.render('product/show', { product });
@@ -305,6 +307,7 @@ const productController = {
 			let package = await Product.package.findById(req.params.id);
 			package = { ...package[0] };
 			package.images = await Product.package.image.list(package.id);
+			package.products = await Product.package.product.list(req.params.id);
 			
 			try{
 				res.render('product/show', { product: package });

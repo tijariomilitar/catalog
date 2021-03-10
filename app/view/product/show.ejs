@@ -8,9 +8,9 @@
 	<body>
 		<section>
 			<div class="container">
-				<div class="box one center"><h3>#<%= product.code %> - <%= product.name %> <%= product.color %> - <%= product.size %></h3></div>
-				<div class="box one ground margin-top-10">
-					<div class="container">
+				<div class="box one container ground margin-top-10 shadow">
+
+					<div class="box b2 container">
 						<% if(!product.images.length){ %>
 						<div data-js="product-carousel" class="box one ground margin-top-15 padding-10 center display-none display-block">
 		                    <img class="catalog-image" src="/images/product/no-product.png">
@@ -26,11 +26,25 @@
 			                </div>
 							<% } %>
 						<% } %>
-						<div id="product-carousel-navigation" class="box one ground padding-10 center">
-		                    <button data-js="product-carousel-prev" name="carousel-prev" class="btn-pagination" autocomplete="off">&lsaquo;&lsaquo;</button>
-		                    <button data-js="product-carousel-next" name="carousel-next" class="btn-pagination" autocomplete="off">&rsaquo;&rsaquo;</button>
+						<div id="product-carousel-navigation" class="box one ground container padding-10 center">
+		                    <div class="mobile-box b5"></div>
+		                    <button data-js="product-carousel-prev" name="carousel-prev" class="mobile-box b5 noborder"><img class="height-40 icon pointer" src="/images/icon/prev.png"></button>
+		                    <div class="mobile-box b5"></div>
+		                    <button data-js="product-carousel-next" name="carousel-next" class="mobile-box b5 noborder"><img class="height-40 icon pointer" src="/images/icon/next.png"></button>
 		                </div>
 						<% } %>
+					</div>
+
+					<div class="box b2 container margin-bottom-15">
+						<div class="box b1 avant-garde em40 center padding-10 bold"><%= product.name %> - <%= product.color %></div>
+						<div class="box b1 avant-garde em25 italic center padding-10 bold" style="color:#467846;">R$<%= product.price %></div>
+						<div class="box b1">
+							<% if(product.products) { %>
+								<% for(let i in product.products){ %>
+								<div class="box one ground padding-10 margin-top-5 border"><%= product.products[i].product_info %></div>
+								<% } %>
+							<% } %>
+						</div>
 					</div>
 				</div>
 			</div>
