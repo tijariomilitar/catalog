@@ -20,8 +20,6 @@ if(Product.controller.catalog.filter){
 
 		products = lib.sort(products, "code");
 
-		console.log(products);
-
 		const pagination = { pageSize: 28, page: 0};
 		(function(){ lib.carousel.execute("product-catalog-filter-box", Product.view.catalog.filter, products, pagination); }());
 

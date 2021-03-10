@@ -13,7 +13,7 @@
 			<!-- <div class="container image-fit height-350" style="background-image: url('/images/background/banner1.png')"> -->
 			</div>
 			<div class="container" style="min-height:500px;">
-                <div class="box one center padding-10 margin-top-10 shadow" style="display:none">
+                <div class="box one padding-10 margin-top-10 shadow" style="display:none">
                 	<div class="box b1 font-12 avant-garde bold">Catálogo de produtos</div>
 					<form id="product-catalog-filter-form" class="box one container">
 						<input type="hidden" name="location" value="product-catalog">
@@ -28,10 +28,22 @@
 						<input type="submit" name="submit" class="box four input-generic margin-top-5 bold" style="color:#3c3c3c;" value="Filtrar">
 					</form>
 				</div>
-				<div id="product-catalog-filter-box" class="box one hide">
+				
+
+				<div class="box one container">
+					<div class="mobile-box b9 center">
+						<img class="icon size-40" src="/images/icon/grid.png" onclick="lib.displayDiv('product-catalog-filter-box', this);document.getElementById('product-catalog-filter-table').style.display='none';">
+					</div>
+					<div class="mobile-box b9 center">
+						<img class="icon size-40" src="/images/icon/list.png" onclick="lib.displayDiv('product-catalog-filter-table', this);document.getElementById('product-catalog-filter-box').style.display='none';">
+					</div>
+				</div>
+				
+				<div id="product-catalog-filter-box">
 					<div id="product-catalog-container" class="container"></div>
 	        		<% include ./partials/carousel %>
 				</div>
+				<div id="product-catalog-filter-table" class="box one container" style="display:none"></div>
 			</div>
 			<!-- <div class="container padding-10" style="background-color:#3c3c3c;color:#c8c8c8">
 				<div class="box b4 container center padding-10">
