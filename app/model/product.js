@@ -188,7 +188,7 @@ Product.package = {
 			return db(query);
 		},
 		list: async (package_id) => {
-			let query = "SELECT * FROM cms_wt_erp.product_package_product WHERE package_id='"+package_id+"' ORDER BY id ASC;";
+			let query = "SELECT * FROM cms_wt_erp.product_package_product INNER JOIN cms_wt_erp.product ON cms_wt_erp.product_package_product.product_id = cms_wt_erp.product.id WHERE package_id='"+package_id+"';";
 			return db(query);
 		},
 		update: async (package_product_id, product) => {
