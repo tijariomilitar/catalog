@@ -308,6 +308,15 @@ const productController = {
 			package = { ...package[0] };
 			package.images = await Product.package.image.list(package.id);
 			package.products = await Product.package.product.list(req.params.id);
+			for(let i in package.products){
+				package.products[i].product_info = lib.splitTextBy(package.products[i].product_info, " | ");
+				package.products[i].code = package.products[i].product_info[0];
+				package.products[i].name = package.products[i].product_info[1];
+				package.products[i].color = package.products[i].product_info[2];
+				package.products[i].size = package.products[i].product_info[3];
+			};
+
+			package.products = lib.sort(package.products, "code");
 			
 			try{
 				res.render('product/show', { product: package });

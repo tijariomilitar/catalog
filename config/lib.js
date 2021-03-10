@@ -331,5 +331,17 @@ module.exports = {
 	},
 	roundToInt: (num, places) => {
 		return +(parseFloat(num).toFixed(places));
+	},
+	splitTextBy: (text, split_string) => {
+		if(text && split_string){
+			let splited_text = text.split(split_string);
+			return splited_text;
+		};
+		return false;
+	},
+	sort: (arr, key) => {
+		return arr = arr.sort((a, b) => {
+			return a[key] - b[key];
+		}); 
 	}
 };
