@@ -13,22 +13,22 @@ Product.view.catalog.filter = async (products, pagination) => {
 		} else {
 			html += "<div class='mobile-box b12 center'><img class='size-40' src='/images/product/no-product.png' alt=''/></div>";
 		};
-		html += `<div class="mobile-box b4 avant-garde center em10 padding-10 bold" style="color:#323232;">`+products[i].name+` - `+products[i].color+`</div>`;
+		html += `<div class="mobile-box b4 avant-garde center em09 padding-10 bold" style="color:#323232;">`+products[i].name+` - `+products[i].color+`</div>`;
 		html += "<div class='mobile-box b6 center border-left container'>";
 			html += "<div class='mobile-box b1 em08 italic'>À vista</div>"
-			html += "<div class='mobile-box b1 em10 center italic bold' style='color:#467846;'>R$"+products[i].price.toFixed(2)+"</div>"
+			html += "<div class='mobile-box b1 em10 center italic bold' style='color:#467846;'>$"+products[i].price.toFixed(2)+"</div>"
 		html += "</div>";
 		html += "<div class='mobile-box b6 center border-left container'>";
 			html += "<div class='mobile-box b1 em08 italic'>30 dias</div>"
-			html += "<div class='mobile-box b1 em10 center italic bold' style='color:#467846;'>R$"+(products[i].price * 1.06).toFixed(2)+"</div>"
+			html += "<div class='mobile-box b1 em10 center italic bold' style='color:#467846;'>$"+(products[i].price * 1.06).toFixed(2)+"</div>"
 		html += "</div>";
 		html += "<div class='mobile-box b6 center border-left container'>";
 			html += "<div class='mobile-box b1 em08 italic'>60 dias</div>"
-			html += "<div class='mobile-box b1 em10 center italic bold' style='color:#467846;'>R$"+(products[i].price * 1.09).toFixed(2)+"</div>"
+			html += "<div class='mobile-box b1 em10 center italic bold' style='color:#467846;'>$"+(products[i].price * 1.09).toFixed(2)+"</div>"
 		html += "</div>";
 		html += "<div class='mobile-box b6 center border-left container'>";
 			html += "<div class='mobile-box b1 em08 italic'>90 dias</div>"
-			html += "<div class='mobile-box b1 em10 center italic bold' style='color:#467846;'>R$"+(products[i].price * 1.12).toFixed(2)+"</div>"
+			html += "<div class='mobile-box b1 em10 center italic bold' style='color:#467846;'>$"+(products[i].price * 1.12).toFixed(2)+"</div>"
 		html += "</div>";
 		html += "</div>";
 	};
@@ -48,7 +48,7 @@ Product.view.catalog.filter = async (products, pagination) => {
 			html += "<div class='box one'><img class='image-card' src='/images/product/no-product.png' alt=''/></div>";
 		};
 		html += `<div class="box one avant-garde center em10 padding-10 bold" style="color:#323232;">`+products[i].name+` - `+products[i].color+`</div>`;
-		html += "<div class='box one em15 center italic bold' style='color:#467846;'>R$"+products[i].price.toFixed(2)+"</div>"
+		html += "<div class='box one em15 center italic bold' style='color:#467846;'>$"+products[i].price.toFixed(2)+"</div>"
 		html += "</div>";
 		html += "</div>";
 	};
