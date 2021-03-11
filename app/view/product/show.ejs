@@ -37,7 +37,7 @@
 
 					<div class="box b2 container margin-bottom-15">
 						<div class="box b1 avant-garde em40 center padding-10 bold"><%= product.name %> - <%= product.color %></div>
-						<div class="box b1 avant-garde em25 italic center padding-10 bold" style="color:#467846;">R$<%= product.price %></div>
+						<!-- <div class="box b1 avant-garde em25 italic center padding-10 bold" style="color:#467846;">R$<%= product.price %></div>
 						<div class="box b1 container padding-10 bold">
 							<div class="mobile-box b3 container">
 								<div class="box b1 avant-garde em10 italic">30 Dias</div>
@@ -51,14 +51,14 @@
 								<div class="box b1 avant-garde em10 italic">90 Dias</div>
 								<div class="box b1 avant-garde em18 italic" style="color:#467846;">$<%= (product.price * 1.12).toFixed(2) %></div>
 							</div>
-						</div>
+						</div> -->
 
-						<div class="box b1">
+						<div class="box b1 container">
 							<% if(product.products) { %>
 								<% for(let i in product.products){ %>
-									<div class="box one container ground padding-10 box-hover margin-top-5 border">
-										<div class="mobile-box b9 center"><img class="size-40" src="<%= product.products[i].image %>"></div>
-										<div class="mobile-box b8-9 avant-garde v-center bold"><%= product.products[i].amount %>un - <%= product.products[i].name %> | <%= product.products[i].color %></div>
+									<div class="box b3 container ground padding-10 box-hover margin-top-5 center border">
+										<div class="mobile-box b1 center"><img class="image-card" style="max-height:100px" src="<%= product.products[i].image %>"></div>
+										<div class="mobile-box b1 avant-garde center margin-top-10 bold"><%= product.products[i].amount %>un - <%= product.products[i].name %> | <%= product.products[i].color %></div>
 									</div>
 								<% } %>
 							<% } %>
