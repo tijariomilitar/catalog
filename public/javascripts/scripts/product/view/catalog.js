@@ -51,8 +51,6 @@ Product.view.catalog.filter = async (products, pagination) => {
 		console.log(products[i]);
 		if(products[i].announcement){
 			html += `<div class="box one avant-garde box-hover center em10 padding-10 radius-10" onclick="lib.openExternalLink('`+products[i].announcement+`')">Ver no Site</div>`;
-		} else {
-			html += `<div class="box one avant-garde box-hover center em10 padding-10 radius-10">Esgotado</div>`;
 		};
 		html += "<div class='box one em15 center italic bold' style='color:#467846;'>$"+products[i].price.toFixed(2)+"</div>"
 		html += "</div>";
