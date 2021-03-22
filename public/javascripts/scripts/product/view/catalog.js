@@ -48,9 +48,9 @@ Product.view.catalog.filter = async (products, pagination) => {
 			html += "<div class='box one'><img class='image-card' src='/images/product/no-product.png' alt=''/></div>";
 		};
 		html += `<div class="box one avant-garde center em10 padding-10 bold" style="color:#323232;">`+products[i].name+` - `+products[i].color+`</div>`;
-		if(products[i].announcement){
-			html += `<div class="box one avant-garde box-hover center em10 padding-10 radius-10" onclick="lib.openExternalLink('`+products[i].announcement+`')">Ver no Site</div>`;
-		};
+		// if(products[i].announcement){
+		// 	html += `<div class="box one avant-garde box-hover center em10 padding-10 radius-10" onclick="lib.openExternalLink('`+products[i].announcement+`')">Ver no Site</div>`;
+		// };
 		html += "<div class='box one em15 center italic bold' style='color:#467846;'>$"+products[i].price.toFixed(2)+"</div>"
 		html += "</div>";
 		html += "</div>";
