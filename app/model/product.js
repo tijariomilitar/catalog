@@ -203,6 +203,18 @@ Product.package = {
 			let query = "DELETE FROM cms_wt_erp.product_package_product WHERE package_id='"+package_id+"';";
 			return db(query);
 		}
+	},
+	price: {
+		find: async (price) => {
+			let query = "SELECT * FROM cms_wt_erp.product_package_price where category_id='"+price.category_id+"' AND package_id='"+price.package_id+"' ORDER BY id ASC;";
+			return db(query);
+		}
+	},
+	catalog: {
+		filter: (params, values, inners, status) => {
+			let query = lib.filterByLikeAndInnerJoinAndByStatus(params, values, "product_package_price", inners, "status", status, "cms_wt_erp", "product_package", "code", "ASC");
+			return db(query);
+		}
 	}
 };
 

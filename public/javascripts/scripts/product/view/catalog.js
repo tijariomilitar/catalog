@@ -3,10 +3,10 @@ Product.view.catalog = {};
 Product.view.catalog.filter = async (products, pagination) => {
 	var html = "";
 	for(let i in products){
-		if(products[i].product_id){
+		if(!products[i].pack){
 			html += "<div class='box b2 container ground pointer padding-10 margin-top-5 shadow-hover' onclick='window.location.href=`/product/show/"+products[i].product_id+"`'>";
 		} else {
-			html += "<div class='box b2 container ground pointer padding-10 margin-top-5 shadow-hover' onclick='window.location.href=`/product/package/show/"+products[i].id+"`'>";
+			html += "<div class='box b2 container ground pointer padding-10 margin-top-5 shadow-hover' onclick='window.location.href=`/product/package/show/"+products[i].package_id+"`'>";
 		};
 		if(products[i].image){
 			html += "<div class='mobile-box b4 center'><img class='height-50' src='"+products[i].image+"' alt=''/></div>";
@@ -36,10 +36,10 @@ Product.view.catalog.filter = async (products, pagination) => {
 
 	html = "";
 	for (let i = pagination.page * pagination.pageSize; i < products.length && i < (pagination.page + 1) * pagination.pageSize; i++){
-		if(products[i].product_id){
+		if(!products[i].pack){
 			html += "<div class='box b3 container ground pointer padding-10 margin-top-5 shadow-hover' onclick='window.location.href=`/product/show/"+products[i].product_id+"`'>";
 		} else {
-			html += "<div class='box b3 container ground pointer padding-10 margin-top-5 shadow-hover' onclick='window.location.href=`/product/package/show/"+products[i].id+"`'>";
+			html += "<div class='box b3 container ground pointer padding-10 margin-top-5 shadow-hover' onclick='window.location.href=`/product/package/show/"+products[i].package_id+"`'>";
 		};
 		html += "<div class='container'>";
 		if(products[i].image){

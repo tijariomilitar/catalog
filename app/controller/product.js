@@ -307,6 +307,9 @@ const productController = {
 			let package = await Product.package.findById(req.params.id);
 			package = { ...package[0] };
 			package.images = await Product.package.image.list(package.id);
+			let price = await Product.package.price.find({ category_id: 3, package_id: req.params.id });
+			package.price = price[0].price;
+
 			package.products = await Product.package.product.list(req.params.id);
 			for(let i in package.products){
 				package.products[i].product_info = lib.splitTextBy(package.products[i].product_info, " | ");
@@ -361,16 +364,20 @@ const productController = {
 
 			let status = "Disponível";
 
-			let inners = [
+			let product_inners = [
 				["cms_wt_erp.product.id","cms_wt_erp.product_price.product_id"],
 				["cms_wt_erp.product_price.category_id", req.query.price_category_id]
 			];
 
+			let package_inners = [
+				["cms_wt_erp.product_package.id","cms_wt_erp.product_package_price.package_id"],
+				["cms_wt_erp.product_package_price.category_id", req.query.price_category_id]
+			];
+
 			try {
-				let products = await Product.catalog.filter(params, values, inners, status);
-				let packages = await Product.package.filter(req.query.name, ["status"], [status]);
-				products = products.concat(packages);
-				res.send({ products: products });
+				let products = await Product.catalog.filter(params, values, product_inners, status);
+				let packages = await Product.package.catalog.filter(params, values, package_inners, status);
+				res.send({ products: products, packages: packages });
 			} catch (err) {
 				console.log(err);
 				res.send({ msg: "Ocorreu um erro ao filtrar os produtos." });

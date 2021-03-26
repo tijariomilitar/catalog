@@ -14,14 +14,21 @@ if(Product.controller.catalog.filter){
 		};
 
 		document.getElementById('ajax-loader').style.visibility = 'visible';
-		let products = await Product.catalog.filter(product);
+		let response = await Product.catalog.filter(product);
 		document.getElementById('ajax-loader').style.visibility = 'hidden';
-		if(!products){ return false };
+		if(!response){ return false };
 
-		products = lib.sort(products, "code");
+		let catalog_products = [ ...response.products];
+
+		for(let i in response.packages){
+			response.packages[i].pack = true;
+			catalog_products.push(response.packages[i]);
+		};
+
+		catalog_products = lib.sort(catalog_products, "code");
 
 		const pagination = { pageSize: 21, page: 0};
-		(function(){ lib.carousel.execute("product-catalog-filter-box", Product.view.catalog.filter, products, pagination); }());
+		(function(){ lib.carousel.execute("product-catalog-filter-box", Product.view.catalog.filter, catalog_products, pagination); }());
 
 		closeNav();
 	});

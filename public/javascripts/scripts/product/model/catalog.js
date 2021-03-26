@@ -6,5 +6,5 @@ Product.catalog.filter = async (product) => {
 
 	if(API.verifyResponse(response)){ return false };
 
-	return response.products;
+	return response;
 };
