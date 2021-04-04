@@ -1,15 +1,10 @@
 <html>
 	<head>
         <% include ./partials/head %>
-        <style type="text/css">
-        	.
-        </style>
 	</head>
 	<body>
 		<header>
-			<div onclick="window.location.href='/'" href="#default" class="favicon"><img class="favicon-image" src="/images/favicon/favicon-black.png"></div>
-			<!-- <div class="right padding-15 em08 avant-garde center"><div class="pointer">Entrar</div></div> -->
-			<!-- <div class="right padding-15 em08 avant-garde center"><div class="pointer">Cadastrar-me</div></div> -->
+			<img class="width-150 opacity-hover-08 pointer" onclick="window.location.href='/'" src="/images/favicon/favicon-black.png">
 		</header>
         <% include ./partials/nav %>
 		<section>
@@ -33,13 +28,9 @@
 				</div>
 				
 
-				<div class="box one container">
-					<div class="mobile-box center">
-						<img class="icon size-40" src="/images/icon/grid.png" onclick="document.getElementById('product-catalog-filter-table').style.display='none';document.getElementById('product-catalog-filter-box').style.display='';">
-					</div>
-					<div class="mobile-box center">
-						<img class="icon size-40" src="/images/icon/list.png" onclick="document.getElementById('product-catalog-filter-box').style.display='none';document.getElementById('product-catalog-filter-table').style.display='';">
-					</div>
+				<div class="mobile-box b4">
+					<img class="margin-left-10 icon size-40" src="/images/icon/grid.png" onclick="document.getElementById('product-catalog-filter-table').style.display='none';document.getElementById('product-catalog-filter-box').style.display='';">
+					<img class="margin-left-10 icon size-40" src="/images/icon/list.png" onclick="document.getElementById('product-catalog-filter-box').style.display='none';document.getElementById('product-catalog-filter-table').style.display='';">
 				</div>
 				
 				<div id="product-catalog-filter-box">
